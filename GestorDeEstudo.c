@@ -105,7 +105,7 @@ void cadastrarAluno(Aluno *aluno){
     Sleep(1000);
     
      // Cria e abre um arquivo com o nome do aluno (matrícula) para escrita
-    FILE *alunotxt = fopen(aluno->matriculaAluno ,"W");
+    FILE *alunotxt = fopen(aluno->matriculaAluno ,"w");
    
      // Escreve os dados do aluno no arquivo
     fprintf(alunotxt, "Nome: %s\n", aluno->nome);//função fprintf serve para escrever o nome do aluno no arquivo
