@@ -264,6 +264,9 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     }
     fclose(file);
 
+    printf("Quantas questões deseja responder de %s: ",rquestao);//solicita ao usuário a quantidade de questões que deseja responder 
+    scanf("%i",&numQuestoes);
+    getchar();
     // exiba as questões
     for (int i = 0; i < numQuestoes; i++) {
         Sleep(500);
