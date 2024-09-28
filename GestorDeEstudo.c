@@ -18,9 +18,10 @@ typedef struct {
 typedef struct {
     char materia [80];
     char enunciado[250];
-    char alternativas[5][100];
+    char alternativas[5][1000];
     char resposta [100]; 
     int quantQuest;
+   
 } Questao;
 
 // Estrutura para armazenar informações de um monitor
@@ -41,7 +42,7 @@ void cadastrarAluno(Aluno *aluno){
     
 
     int contstring;
-    FILE *consulta;
+    //FILE *consulta;
     do{
         printf("Nome do Aluno: ");
         fgets(aluno -> nome, 50, stdin); // Linha a linha de entrada para o nome do aluno
@@ -175,7 +176,6 @@ void cadastrarQuestao(Questao * questao){
     }while(contstring <= 1);
     questao -> enunciado[strcspn(questao -> enunciado, "\n")] = '\0';
     Sleep(500);
-    printf("Resposta da questão:\n");
     for(int i=0; i < 5;i++){ 
         do{
             printf("Alternativa %i: ",i+1);
@@ -197,10 +197,9 @@ void cadastrarQuestao(Questao * questao){
     Sleep(1000);
 
      // Abre o arquivo para armazenar a questão cadastrada
-    FILE * questaotxt = fopen(questao ->materia,"a");
+    FILE * questaotxt = fopen(questao->materia,"a");
     fprintf(questaotxt, "Matéria: %s\n",questao->materia);
     fprintf(questaotxt,"Enunciado da questão: %s\n",questao->enunciado);
-    fprintf(questaotxt,"Resposta da questão\n");
     for(int i=0; i <5; i++){
         fprintf(questaotxt,"Alternativa %i: ",i+1);
         fprintf(questaotxt,"%s",questao->alternativas[i]);
@@ -217,33 +216,79 @@ void cadastrarQuestao(Questao * questao){
     
 }
 
-void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos){
+void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     char resposta[100];
     int contstring;
-    *acertos = 0; // Inicializa o contador de acertos
+    char rquestao[80];
+    char buffer[255];
 
-     // Loop para resolver as questões
-    for(int i = 0; i < numQuestoes; i++) {
+    FILE *lista;
+    *acertos = 0; // Inicializa o contador de acertos
+        printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
+        lista = fopen("listamaterias.txt","r"); // Acessa e ler o arquivo com a lista de todas as disciplinas
+        while (fgets(buffer, sizeof(buffer), lista)) {
+                printf("%s", buffer);
+               
+                
+        }
+        fclose(lista);   // Fecha o arquivo apois a leitura
+
+    printf("Qual matéria você deseja resolver as questões?\n");
+    fgets(rquestao, 80, stdin);
+    rquestao[strcspn(rquestao, "\n")] = '\0'; // Remove nova linha
+    
+    FILE *file = fopen(rquestao, "r");
+    if (file == NULL) {
+        printf("Erro ao abrir o arquivo de questões.\n");
+        return;
+    }
+
+    // Inicializa o contador de questões
+    numQuestoes = 0;
+
+    while (fgets(questoes[numQuestoes].materia, sizeof(questoes[numQuestoes].materia), file) != NULL) {
+        questoes[numQuestoes].materia[strcspn(questoes[numQuestoes].materia, "\n")] = '\0'; // Remove nova linha
+
+        fgets(questoes[numQuestoes].enunciado, sizeof(questoes[numQuestoes].enunciado), file);
+        questoes[numQuestoes].enunciado[strcspn(questoes[numQuestoes].enunciado, "\n")] = '\0'; // Remove nova linha
+
+        for (int i = 0; i < 5; i++) {
+            fgets(questoes[numQuestoes].alternativas[i], sizeof(questoes[numQuestoes].alternativas[i]), file);
+            questoes[numQuestoes].alternativas[i][strcspn(questoes[numQuestoes].alternativas[i], "\n")] = '\0'; // Remove nova linha
+        }
+
+        fgets(questoes[numQuestoes].resposta, sizeof(questoes[numQuestoes].resposta), file);
+        questoes[numQuestoes].resposta[strcspn(questoes[numQuestoes].resposta, "\n")] = '\0'; // Remove nova linha
+
+        (numQuestoes)++; // Incrementa o número de questões lidas
+    }
+    fclose(file);
+
+    // exiba as questões
+    for (int i = 0; i < numQuestoes; i++) {
         Sleep(500);
 
-         // Exibe a matéria e o enunciado da questão
-        printf("Materia: %s\n",questoes->materia);
+        // Exibe a matéria e o enunciado da questão
+        printf("%s\n", questoes[i].materia);
         Sleep(500);
         printf("Questão %d: %s\n", i + 1, questoes[i].enunciado);
         Sleep(500);
-    for(int i = 0; i < 5; i++){
-        printf("Alternativa %i: %s",i+1 ,questoes->alternativas[i]);
-    }
-    do{
-        printf("\nSua resposta(1 a 5): ");
-        fgets(resposta, 100, stdin);
-        contstring = strlen(resposta);
-        resposta[strcspn(resposta, "\n")] = '\0';
-    }while(contstring <= 1);
-    
-    if(strcmp(resposta, questoes[i].resposta) == 0) { // Verifica se a resposta está correta
-        (*acertos)++;
-    }
+        
+        // Exibe as alternativas
+        for (int j = 0; j < 5; j++) {
+            printf("%s\n", questoes[i].alternativas[j]);
+        }
+
+        do {
+            printf("\nSua resposta (1 a 5): ");
+            fgets(resposta, 100, stdin);
+            contstring = strlen(resposta);
+            resposta[strcspn(resposta, "\n")] = '\0';
+        } while (contstring <= 1);
+
+        if (strcmp(resposta, questoes[i].resposta) == 0) { // Verifica se a resposta está correta
+            (*acertos)++;
+        }
     }
 }
 
@@ -357,7 +402,7 @@ void consultarQuestoes() {
     FILE *file; // Ponteiro para o arquivo que armazena as questões de uma disciplina
     char materia[80];   // Varíavel para armazenar o nome da disciplina para consulta
     char buffer[255];  // Buffer para ler linhas dos arquivos
-    printf("Consultar Questï¿½es:\n");
+    printf("Consultar Questões:\n");
     Sleep(500);
     while (1) { // Loop para continuar a consulta até que o usúrio decida sair 
         printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
@@ -497,13 +542,13 @@ int main(){
             }
             break;
             case 4:
-                if (questoes->quantQuest == 0){ // Verifica se nenhuma questão foi cadastrada
+                /*if (questoes->quantQuest == 0){ // Verifica se nenhuma questão foi cadastrada
                     printf("Analisando...\n");
                     Sleep(1000);
                     printf("**Nenhuma questï¿½o foi cadastrada ainda!**\n");
                     Sleep(1000);
                     break;
-                }
+                }*/
                 resolverQuestoes(questoes, numQuestoes, &acertos); // Chama a função para resolver questões
                 Sleep(600);
                 printf("Voce acertou %d de %d questões. \n", acertos, numQuestoes); // Exibe o número de acertos
