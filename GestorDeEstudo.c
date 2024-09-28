@@ -21,6 +21,7 @@ typedef struct {
     char alternativas[5][1000];
     char resposta [100]; 
     int quantQuest;
+    int totQuest;// variavel contar total questões
    
 } Questao;
 
@@ -204,13 +205,13 @@ void cadastrarQuestao(Questao * questao){
         fprintf(questaotxt,"Alternativa %i: ",i+1);
         fprintf(questaotxt,"%s",questao->alternativas[i]);
     }
-    fprintf(questaotxt,"Número de questão correta(1 a 5): %s\n",questao->resposta);
+    fprintf(questaotxt,"%s",questao->resposta);//Vai imprimir no banco de dados apenas o número da resposata, assim facilitando na hora da comparação
     
     fclose(questaotxt);  // Fecha o arquivo apois a escrita
 
    
     FILE * listaquestoestxt = fopen("listamaterias.txt","a");  // Abre o arquivo para armazenar a lista de matérias
-    fprintf(listaquestoestxt, "Matéria: %s\n",questao->materia); // Escreve a matéia no arquivo de lista de matérias
+    fprintf(listaquestoestxt, "\nMatéria: %s\n",questao->materia); // Escreve a matéia no arquivo de lista de matérias
     
     fclose(listaquestoestxt); // Fecha o arquivo apois a escrita
     
@@ -267,6 +268,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     printf("Quantas questões deseja responder de %s: ",rquestao);//solicita ao usuário a quantidade de questões que deseja responder 
     scanf("%i",&numQuestoes);
     getchar();
+    questoes->totQuest = numQuestoes;// recebe o número de questão que o usuário deseja responder, para mostrar no fim do questionario
     // exiba as questões
     for (int i = 0; i < numQuestoes; i++) {
         Sleep(500);
@@ -283,15 +285,16 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         }
 
         do {
-            printf("\nSua resposta (1 a 5): ");
-            fgets(resposta, 100, stdin);
+            printf("Número da questão correta(1 a 5): ");
+            fgets(resposta, 100, stdin); 
             contstring = strlen(resposta);
             resposta[strcspn(resposta, "\n")] = '\0';
         } while (contstring <= 1);
-
         if (strcmp(resposta, questoes[i].resposta) == 0) { // Verifica se a resposta está correta
             (*acertos)++;
+            printf("Você acerto a questão.\n");//Vi dizer ao usuário se ele acertou ou não, vai ser retirado depois vamos dexiar para facilitar o estudo durante as provas
         }
+        
     }
 }
 
@@ -554,7 +557,7 @@ int main(){
                 }*/
                 resolverQuestoes(questoes, numQuestoes, &acertos); // Chama a função para resolver questões
                 Sleep(600);
-                printf("Voce acertou %d de %d questões. \n", acertos, numQuestoes); // Exibe o número de acertos
+                printf("Voce acertou %d de %d questões. \n", acertos, questoes->totQuest); // Exibe o número de acertos
                 break;
             case 5:
                 cadastrarMonitor(&monitor); // Chama a função para cadastrar um monitor
