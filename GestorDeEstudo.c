@@ -4,10 +4,9 @@
 #include <stdlib.h>  // Inclui a biblioteca para funcionalidaes utilitarias
 #include <windows.h> // Inclui a biblioteca para funções específicas do Windows
 
-
 // Estrutura para armazenar informaçõeses de um aluno
 typedef struct {
-    char nome [80]; // Nome do aluno
+     char nome [80]; // Nome do aluno
     char curso [80]; // Curso do aluno
     char disciplinas [10][80]; // Lista de disciplinas (máximo de 10)
     char matriculaAluno[20];   // Matrícula do aluno
@@ -33,10 +32,6 @@ typedef struct{
     int quant; // Quantidade de monitores
 } Monitor;
 
-typedef struct{/*Sera implementado*/
-
-
-}Cronograma;
 // Função para exibir uma linha separadora no console
 void mostrarlinha(){
     printf("\n-------------------------------\n");
@@ -46,32 +41,32 @@ void mostrarlinha(){
 void cadastrarAluno(Aluno *aluno){ 
     
 
-    int contstring;  // Variável para contar o comprimento das strings
-     // Captura a matéria da questão
+    int contstring;
+    //FILE *consulta;
     do{
         printf("Nome do Aluno: ");
         fgets(aluno -> nome, 50, stdin); // Linha a linha de entrada para o nome do aluno
         contstring = strlen(aluno->nome);  // Obtem o comprimento da string
     }while(contstring <= 1);  // Garante que o nome tenha pelo menos um caractere
     aluno -> nome[strcspn(aluno -> nome, "\n")] = '\0'; // Remove o caractere de nova linha
-    Sleep(600); // Pausa a execução por 800 milissegundos
+    Sleep(600); // Pausa a execução por 600 milissegundos
     do{
         printf("Digite sua matrícula: ");
         fgets(aluno->matriculaAluno,20,stdin);  
-        contstring = strlen(aluno->matriculaAluno);
-    }while(contstring <= 10);
-    aluno -> matriculaAluno[strcspn(aluno -> matriculaAluno, "\n")] = '\0';// Remove a nova linha do final da string
+        contstring = strlen(aluno->matriculaAluno);// Obtem o comprimento da string
+    }while(contstring <= 10);//Garante que a matricula tenha pelo menos 10 caracteres
+    aluno -> matriculaAluno[strcspn(aluno -> matriculaAluno, "\n")] = '\0'; // Remove a nova linha do final da string
     Sleep(500); // Pausa a execução por 500 milissegundos
 
-     // Captura o curso do aluno
+    // Captura o curso do aluno
 
     do{
         printf("Curso: ");
-        fgets(aluno -> curso, 50, stdin);
+        fgets(aluno -> curso, 50, stdin);// Lê a entrada do usuário
         contstring = strlen(aluno->curso);
     }while(contstring <= 1); //garantindo que não seja vazio
-    aluno -> curso[strcspn(aluno -> curso, "\n")] = '\0';
-    Sleep(500); // Pausa a execução por 500 milissegundos
+    aluno -> curso[strcspn(aluno -> curso, "\n")] = '\0';// Remove a nova linha do final da string
+    Sleep(500);// Pausa a execução por 500 milissegundos
 
     // Captura o período em que o aluno está, garantindo que esteja entre 1 e 16
 
@@ -85,7 +80,7 @@ void cadastrarAluno(Aluno *aluno){
 
     do{
         printf("Quantidade de disciplinas MAX 10: ");
-        scanf("%i",&aluno->quantdisciplinas);
+        scanf("%i",&aluno->quantdisciplinas);// Lê a entrada do usuário
         getchar();
      } while (aluno->quantdisciplinas > 10 || aluno->quantdisciplinas < 1); // Garante que a quantidade esteja entre 1 e 10
 
@@ -96,23 +91,25 @@ void cadastrarAluno(Aluno *aluno){
             fgets(aluno -> disciplinas[i], 80, stdin); // Lê a entrada do nome da disciplina
             contstring = strlen(aluno->disciplinas[i]);
         }while(contstring <= 1);
-        aluno -> disciplinas[i] [strcspn(aluno -> disciplinas[i], "\n")] = '\0';
+        aluno -> disciplinas[i] [strcspn(aluno -> disciplinas[i], "\n")] = '\0'; // Remove a nova linha do final da string
     }
-    Sleep(500);  // Pausa a execução por 500 milissegundos
-    do{
-        printf("Tempo disponivel para estudo (em minutos): ");
-        scanf("%d", &aluno -> tempoDisponivel);
-        getchar(); // Limpa o buffer de entrada
-    }while(aluno->tempoDisponivel <= 0 || aluno->tempoDisponivel > 1440);// Garante que o tempo esteja entre 1 minuto e 24 horas (1440 minutos)
     Sleep(500); // Pausa a execução por 500 milissegundos
     do{
+        printf("Tempo disponivel para estudo (em minutos): ");
+        scanf("%d", &aluno -> tempoDisponivel);// Lê a entrada do usuário
+        getchar(); // Limpa o buffer de entrada
+        
+    }while(aluno->tempoDisponivel <= 0 || aluno->tempoDisponivel > 1440);// Garante que o tempo esteja entre 1 minuto e 24 horas (1440 minutos)
+    Sleep(500);
+    do{
         printf("Quantidade de questões que deseja responder ao término do estudo: ");
-        scanf("%d", &aluno -> questoesPorEstudo);
+        scanf("%d", &aluno -> questoesPorEstudo);// Lê a entrada do usuário
         getchar();
     }while(aluno->questoesPorEstudo <=0 || aluno->questoesPorEstudo > 10000); // Garante que a quantidade esteja entre 1 e 10.000
-    Sleep(500);
+    Sleep(500); // Pausa a execução por 500 milissegundos
 
-    printf("Cadastrando...\n");// Mensagem de cadastro e gravação dos dados em arquivos
+   
+    printf("Cadastrando...\n");  // Mensagem de cadastro e gravação dos dados em arquivos
     Sleep(2000); // Pausa para simular o tempo de cadastro
     printf("Aluno cadastrado.");
     Sleep(1000); // Pausa a execução por 1 segundo
@@ -153,7 +150,7 @@ void cadastrarAluno(Aluno *aluno){
     fprintf(nomealunotxt, "Tempo Disponível para Estudo (em minutos): %d\n", aluno->tempoDisponivel);// tempo disponivel do aluno
     fprintf(nomealunotxt, "Quantidade de Questões que Deseja Responder: %d\n", aluno->questoesPorEstudo);//quantidade questões
     
-    fclose(nomealunotxt);
+    fclose(nomealunotxt);  // Fecha o arquivo e salva
 }
 
 void gerarCronograma(Aluno aluno){
@@ -177,47 +174,49 @@ void cadastrarQuestao(Questao * questao){
     Sleep(500); // Pausa para melhorar a experiência do usuário
 
     // Captura a matéria da questão
+
     do{
     printf("Matéria: ");
     fgets(questao -> materia, 80, stdin);// Lê a entrada do usuário
     contstring = strlen(questao->materia);// Armazena o comprimento da matéria
-    Sleep(600);// Pausa para melhorar a experiência do usuário
-    }while(contstring <= 1);// Continua pedindo se a entrada estiver vazia
+    Sleep(600); // Pausa para melhorar a experiência do usuário
+    }while(contstring <= 1); //Continua pedindo se a entrada estiver vazia
     questao -> materia[strcspn(questao -> materia, "\n")] = '\0';// Remove a nova linha do final da string
 
     // Captura o enunciado da questão
+
     do{
         printf("Enunciado da questão: ");
-        fgets(questao -> enunciado, 250, stdin);  // Lê o enunciado
-        contstring = strlen(questao->enunciado);// Verifica o comprimento do enunciado
+        fgets(questao -> enunciado, 250, stdin); // Lê a entrada do usuário
+        contstring = strlen(questao->enunciado); // Verifica o comprimento do enunciado
     }while(contstring <= 1); // Continua pedindo se a entrada estiver vazia
-    questao -> enunciado[strcspn(questao -> enunciado, "\n")] = '\0';  // Remove a nova linha do final da string
-    Sleep(500); // Pausa para melhorar a experiência do usuário
+    questao -> enunciado[strcspn(questao -> enunciado, "\n")] = '\0'; // Remove a nova linha do final da string
+    Sleep(500);  // Pausa para melhorar a experiência do usuário    
 
     // Captura as alternativas da questão
 
     for(int i=0; i < 5;i++){ 
         do{
-            printf("Alternativa %i: ",i+1); // Lê a alternativa
-            fgets(questao -> alternativas[i], 100, stdin);   // Lê a alternativa
-            contstring = strlen(questao->alternativas[i]);   // Verifica o comprimento da alternativa
+            printf("Alternativa %i: ",i+1); 
+            fgets(questao -> alternativas[i], 100, stdin);  // Lê a alternativa
+            contstring = strlen(questao->alternativas[i]); // Verifica o comprimento da alternativa
         }while(contstring <= 1) ; // Continua pedindo se a entrada estiver vazia
     }
 
-      // Captura a resposta correta
+    // Captura a resposta correta
 
     do{
         printf("Número da questão correta(1 a 5): ");
-        fgets(questao -> resposta, 100, stdin);  // Lê a resposta correta
-        contstring =strlen (questao->resposta); // Verifica o comprimento da resposta
-    }while(contstring <= 1);// Continua pedindo se a entrada estiver vazia
+        fgets(questao -> resposta, 100, stdin);// Lê a resposta correta
+        contstring =strlen (questao->resposta);// Verifica o comprimento da resposta
+    }while(contstring != 2); // Continua pedindo se a entrada estiver vazia
     
-    questao -> resposta[strcspn(questao -> resposta, "\n")] = '\0';    // Remove a nova linha da resposta
+    questao -> resposta[strcspn(questao -> resposta, "\n")] = '\0'; // Remove a nova linha da resposta
     Sleep(500); // Pausa para melhorar a experiência do usuário
     printf("Cadastrando...\n");
     Sleep(1000);// Pausa para simular o tempo de cadastro
     printf("Questão cadastrada com Sucesso.");
-    Sleep(1000); // Pausa para simular o tempo de cadastro
+    Sleep(1000);// Pausa para simular o tempo de cadastro
 
      // Abre o arquivo para armazenar a questão cadastrada
     FILE * questaotxt = fopen(questao->materia,"a"); // Grava a matéria no arquivo
@@ -225,13 +224,13 @@ void cadastrarQuestao(Questao * questao){
     fprintf(questaotxt,"Enunciado da questão: %s\n",questao->enunciado);
     for(int i=0; i <5; i++){
         fprintf(questaotxt,"Alternativa %i: ",i+1);
-        fprintf(questaotxt,"%s",questao->alternativas[i]);  // Grava a matéria na lista de matérias
+        fprintf(questaotxt,"%s",questao->alternativas[i]);
     }
     fprintf(questaotxt,"%s",questao->resposta);//Vai imprimir no banco de dados apenas o número da resposata, assim facilitando na hora da comparação
     
     fclose(questaotxt);  // Fecha o arquivo apois a escrita
 
-   
+    // Grava a matéria na lista de matérias
     FILE * listaquestoestxt = fopen("listamaterias.txt","a");  // Abre o arquivo para armazenar a lista de matérias
     fprintf(listaquestoestxt, "\nMatéria: %s\n",questao->materia); // Escreve a matéia no arquivo de lista de matérias
     
@@ -239,21 +238,18 @@ void cadastrarQuestao(Questao * questao){
     
 }
 
-
-// Função para resolver questões
-
 void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     char resposta[100]; // Variável para armazenar a resposta do usuário
     int contstring; // Variável para contar o comprimento das strings
     char rquestao[80];// Variável para armazenar a matéria selecionada pelo usuário
     char buffer[255]; // Buffer para leitura de linhas do arquivo
 
-    FILE *lista; // Ponteiro para o arquivo da lista de matérias
+    FILE *lista;// Ponteiro para o arquivo da lista de matérias
     *acertos = 0; // Inicializa o contador de acertos
         printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
         lista = fopen("listamaterias.txt","r"); // Acessa e ler o arquivo com a lista de todas as disciplinas
         while (fgets(buffer, sizeof(buffer), lista)) {
-                printf("%s", buffer);// Imprime cada linha do arquivo
+                printf("%s", buffer);
                
                 
         }
@@ -269,7 +265,8 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         return;// Retorna em caso de erro
     }
 
-    numQuestoes = 0;// Inicializa o contador de questões
+    // Inicializa o contador de questões
+    numQuestoes = 0;
 
     // Lê as questões do arquivo
 
@@ -279,7 +276,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         fgets(questoes[numQuestoes].enunciado, sizeof(questoes[numQuestoes].enunciado), file);
         questoes[numQuestoes].enunciado[strcspn(questoes[numQuestoes].enunciado, "\n")] = '\0'; // Remove nova linha
 
-        for (int i = 0; i < 5; i++) { // Lê as alternativas da questão
+        for (int i = 0; i < 5; i++) {
             fgets(questoes[numQuestoes].alternativas[i], sizeof(questoes[numQuestoes].alternativas[i]), file);
             questoes[numQuestoes].alternativas[i][strcspn(questoes[numQuestoes].alternativas[i], "\n")] = '\0'; // Remove nova linha
         }
@@ -293,7 +290,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
 
     printf("Quantas questões deseja responder de %s: ",rquestao);//solicita ao usuário a quantidade de questões que deseja responder 
     scanf("%i",&numQuestoes);
-    getchar(); // Limpa o buffer
+    getchar();
     questoes->totQuest = numQuestoes;// recebe o número de questão que o usuário deseja responder, para mostrar no fim do questionario
     // exiba as questões
     for (int i = 0; i < numQuestoes; i++) {
@@ -310,14 +307,14 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
             printf("%s\n", questoes[i].alternativas[j]);
         }
 
-        // Solicita a resposta do usuário
+    // Solicita a resposta do usuário
 
         do {
             printf("Número da questão correta(1 a 5): ");
             fgets(resposta, 100, stdin); // Lê a resposta
-            contstring = strlen(resposta);// Verifica o comprimento da resposta
-            resposta[strcspn(resposta, "\n")] = '\0';  // Remove nova linha
-        } while (contstring <= 1);  // Continua pedindo se a entrada estiver vazia
+            contstring = strlen(resposta); // Verifica o comprimento da resposta
+            resposta[strcspn(resposta, "\n")] = '\0'; // Remove nova linha
+        } while (contstring <= 1); // Continua pedindo se a entrada estiver vazia
         if (strcmp(resposta, questoes[i].resposta) == 0) { // Verifica se a resposta está correta
             (*acertos)++;
             printf("Você acerto a questão.\n");//Vi dizer ao usuário se ele acertou ou não, vai ser retirado depois vamos dexiar para facilitar o estudo durante as provas
@@ -328,45 +325,44 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
 
 void cadastrarMonitor(Monitor *monitor){
     int contstring;
-    Sleep(500); // Pausa a execução por 500 milissegundos antes de iniciar o cadastro
+    Sleep(500);// Pausa a execução por 500 milissegundos antes de iniciar o cadastro
     do{
         printf("Nome do Monitor: ");
-        fgets(monitor->nome, 50, stdin);  // Captura o nome do monitor 
+        fgets(monitor->nome, 50, stdin); // Captura o nome do monitor
         contstring = strlen(monitor->nome);
     }while(contstring <=1); //garantindo que não seja vazio
-    monitor->nome[strcspn(monitor->nome, "\n")] = '\0';  // Remove o caractere de nova linha
+    monitor->nome[strcspn(monitor->nome, "\n")] = '\0'; // Remove o caractere de nova linha
     (monitor->quant = 1); // Inicializa a quantidade de monitores
-    Sleep(500);// Pausa a execução por 500 milissegundos
+    Sleep(500); // Pausa a execução por 500 milissegundos
 
     // Captura o horário disponível para monitoria, garantindo que seja maior que 5 caracteres
 
     do{
         printf("Horário disponivel para monitoria: ");
         fgets(monitor->horario, 80, stdin); // Lê a entrada do horário
-        contstring = strlen(monitor->horario);
-    }while(contstring <= 5);  // Garante que o horário tenha pelo menos 5 caracteres
-    monitor->horario[strcspn(monitor->horario, "\n")] = '\0';  // Remove o caractere de nova linha
+        contstring = strlen(monitor->horario); 
+    }while(contstring <= 5);// Garante que o horário tenha pelo menos 5 caracteres
+    monitor->horario[strcspn(monitor->horario, "\n")] = '\0'; // Remove o caractere de nova linha
     Sleep(500); // Pausa a execução por 500 milissegundos
     do{
-        printf("Telefone para contato: 9. ");  // Lê a entrada do telefone
-        fgets(monitor->telefone, 80, stdin);
+        printf("Telefone para contato: 9. ");
+        fgets(monitor->telefone, 80, stdin); // Lê a entrada do telefone
         contstring = strlen(monitor->telefone);
     }while(contstring <= 8); // Garante que o telefone tenha pelo menos 8 caracteres
     monitor->telefone[strcspn(monitor->telefone, "\n")] = '\0';  // Remove o caractere de nova linha
-    Sleep(500); // Pausa a execução por 500 milissegundos
-    printf("Cadastrando....\n"); 
-    Sleep(600);  // Pausa a execução para simular o tempo de cadastro
+    Sleep(500);// Pausa a execução por 500 milissegundos
+    printf("Cadastrando....\n");
+    Sleep(600); // Pausa a execução para simular o tempo de cadastro
     printf("Monitor cadastrado com sucesso.\n");
-    Sleep(1000);  // Pausa a execução por 1 segundo
+    Sleep(1000);// Pausa a execução para simular o tempo de cadastro
 
     FILE *monitortxt = fopen("cadastromonitor.txt","a");  // Abre o arquivo para armazenar o monitor cadastrado
 
      // Escreve os dados do monitor no arquivo
     fprintf(monitortxt,"\nNome do Monitor: %s\n",monitor->nome); // Escreve o nome do monitor
     fprintf(monitortxt,"Horário disponivel para monitoria: %s\n",monitor->horario); // Escreve o horário disponível
-    fprintf(monitortxt,"Telefone para contato:9.%s\n",monitor->telefone); // Escreve o telefone, prefixando com '9.'
-    
-    fclose(monitortxt);  // Fecha o arquivo após a escrita
+    fprintf(monitortxt,"Telefone para contato:9.%s\n",monitor->telefone);  // Escreve o telefone, prefixando com '9.'
+    fclose(monitortxt);// Fecha o arquivo após a escrita
     
 }
 
@@ -504,6 +500,7 @@ void consultarMonitores() {
 void menuConsulta(){
     int opcao1; // Varíavel para armazenar a opção escolhida pelo usúrio
     do{
+            
             mostrarlinha(); // Função para mostrar uma linha no console
             printf("\t    Menu Consulta Aluno\n\n");
             printf("1 -> Consultar Aluno\n");
@@ -537,6 +534,7 @@ void menuConsulta(){
 }
    
 int main(){
+    FILE *materias;
     setlocale(LC_ALL, "Portuguese_Brazil"); // Configura a localização para portugues do Brasil
     Aluno aluno; // Declara uma varíavel do tipo Aluno
     Questao questoes[10]; // Declara um array de Questao com capacidade para 10 questões
@@ -559,7 +557,7 @@ int main(){
         printf("0 -> Sair");
         mostrarlinha();
         Sleep(400);
-        printf("Escolha uma opçãoo: ");
+        printf("Escolha uma opção: ");
         scanf("%d", &opcao);
         getchar();
         switch(opcao){
@@ -576,20 +574,22 @@ int main(){
                 questoes->quantQuest++; // Incrementa a quantidade de questões no array de questões
             }
             else{
-                printf("Limite de questï¿½es atingida.\n");  // Mensagem de erro quando o limite de questões até atingido
+                printf("Limite de questões atingida.\n");  // Mensagem de erro quando o limite de questões até atingido
             }
             break;
             case 4:
-                /*if (questoes->quantQuest == 0){ // Verifica se nenhuma questão foi cadastrada
+                materias = fopen("listamaterias.txt","r");
+                if (materias == NULL){ // Verifica se nenhuma questão foi cadastrada
                     printf("Analisando...\n");
                     Sleep(1000);
-                    printf("**Nenhuma questï¿½o foi cadastrada ainda!**\n");
+                    printf("**Nenhuma questão foi cadastrada ainda!**\n");
                     Sleep(1000);
                     break;
-                }*/
+                }else{
                 resolverQuestoes(questoes, numQuestoes, &acertos); // Chama a função para resolver questões
                 Sleep(600);
                 printf("Voce acertou %d de %d questões. \n", acertos, questoes->totQuest); // Exibe o número de acertos
+                }
                 break;
             case 5:
                 cadastrarMonitor(&monitor); // Chama a função para cadastrar um monitor
