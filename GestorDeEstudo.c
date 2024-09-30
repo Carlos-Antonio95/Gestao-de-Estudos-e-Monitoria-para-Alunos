@@ -226,13 +226,13 @@ void cadastrarQuestao(Questao * questao){
         fprintf(questaotxt,"Alternativa %i: ",i+1);
         fprintf(questaotxt,"%s",questao->alternativas[i]);
     }
-    fprintf(questaotxt,"%s",questao->resposta);//Vai imprimir no banco de dados apenas o número da resposata, assim facilitando na hora da comparação
+    fprintf(questaotxt,"%s\n",questao->resposta);//Vai imprimir no banco de dados apenas o número da resposata, assim facilitando na hora da comparação
     
     fclose(questaotxt);  // Fecha o arquivo apois a escrita
 
     // Grava a matéria na lista de matérias
     FILE * listaquestoestxt = fopen("listamaterias.txt","a");  // Abre o arquivo para armazenar a lista de matérias
-    fprintf(listaquestoestxt, "\nMatéria: %s\n",questao->materia); // Escreve a matéia no arquivo de lista de matérias
+    fprintf(listaquestoestxt, "Matéria: %s\n",questao->materia); // Escreve a matéia no arquivo de lista de matérias
     
     fclose(listaquestoestxt); // Fecha o arquivo apois a escrita
     
@@ -391,7 +391,7 @@ void consultarAlunos() {
                 if (lista == NULL) {
                     printf("Lista de alunos não encontrada\n");
                 } else {
-                    while (fgets(buffer, sizeof(buffer), lista)) { // Ler e imprime o conteï¿½do do arquivo
+                    while (fgets(buffer, sizeof(buffer), lista)) { // Ler e imprime o conteudo do arquivo
                         printf("%s", buffer);  
                 }
                 fclose(lista); // Fecha o arquivo apois a leitura
