@@ -239,7 +239,7 @@ void cadastrarQuestao(Questao * questao){
 }
 
 void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
-    char resposta[100]; // Variável para armazenar a resposta do usuário
+    int resposta; // Variável para armazenar a resposta do usuário
     int contstring; // Variável para contar o comprimento das strings
     char rquestao[80];// Variável para armazenar a matéria selecionada pelo usuário
     char buffer[255]; // Buffer para leitura de linhas do arquivo
@@ -308,14 +308,13 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         }
 
     // Solicita a resposta do usuário
-
+        int repostaInt = atoi(questoes[i].resposta); // Transforma a reposta cadastrada em int para melhor fazer a comparação
         do {
             printf("Número da questão correta(1 a 5): ");
-            fgets(resposta, 100, stdin); // Lê a resposta
-            contstring = strlen(resposta); // Verifica o comprimento da resposta
-            resposta[strcspn(resposta, "\n")] = '\0'; // Remove nova linha
-        } while (contstring <= 1); // Continua pedindo se a entrada estiver vazia
-        if (strcmp(resposta, questoes[i].resposta) == 0) { // Verifica se a resposta está correta
+            scanf("%i",&resposta); // Lê a resposta
+            //contstring = strlen(resposta); // Verifica o comprimento da resposta
+        } while (resposta < 1 || resposta > 5 ); // Continua pedindo se a entrada estiver vazia
+        if (repostaInt == resposta) { // Verifica se a resposta está correta
             (*acertos)++;
             printf("Você acerto a questão.\n");//Vi dizer ao usuário se ele acertou ou não, vai ser retirado depois vamos dexiar para facilitar o estudo durante as provas
         }
