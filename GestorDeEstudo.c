@@ -240,7 +240,6 @@ void cadastrarQuestao(Questao * questao){
 
 void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     int resposta; // Variável para armazenar a resposta do usuário
-    int contstring; // Variável para contar o comprimento das strings
     char rquestao[80];// Variável para armazenar a matéria selecionada pelo usuário
     char buffer[255]; // Buffer para leitura de linhas do arquivo
 
@@ -308,11 +307,10 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         }
 
     // Solicita a resposta do usuário
-        int repostaInt = atoi(questoes[i].resposta); // Transforma a reposta cadastrada em int para melhor fazer a comparação
+        int repostaInt = atoi(questoes[i].resposta); // Transforma a reposta cadastrada em int para melhor fazer a comparação e tratamento de erros
         do {
             printf("Número da questão correta(1 a 5): ");
             scanf("%i",&resposta); // Lê a resposta
-            //contstring = strlen(resposta); // Verifica o comprimento da resposta
         } while (resposta < 1 || resposta > 5 ); // Continua pedindo se a entrada estiver vazia
         if (repostaInt == resposta) { // Verifica se a resposta está correta
             (*acertos)++;
@@ -366,7 +364,6 @@ void cadastrarMonitor(Monitor *monitor){
 }
 
 void consultarAlunos() {
-    char consulta[11];  // Varível para armazenar a opção de consulta
     FILE *file;  // Ponteiro para o arquivo que armazena dados de um aluno específico
     FILE *lista;  // Ponteiro para o arquivo que armazena a lista de todos os alunos
     char matricula[80]; // Varíavel para armazenar a matrícula do aluno para consulta
