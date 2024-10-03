@@ -190,6 +190,7 @@ void gerarCronograma(Cronograma *cronograma){
 }
 
 void cadastrarQuestao(Questao * questao){
+    char buffer[255];
     int contstring; // Variável para contar o comprimento das strings
     Sleep(500); // Pausa para melhorar a experiência do usuário
 
@@ -252,14 +253,33 @@ void cadastrarQuestao(Questao * questao){
     
     fclose(questaotxt);  // Fecha o arquivo apois a escrita
 
-    // Grava a matéria na lista de matérias
-    FILE * listaquestoestxt = fopen("listamaterias.txt","a");  // Abre o arquivo para armazenar a lista de matérias
-    fprintf(listaquestoestxt, "Matéria: %s\n",questao->materia); // Escreve a matéia no arquivo de lista de matérias
-    
-    fclose(listaquestoestxt); // Fecha o arquivo apois a escrita
-    
-}
+    FILE *listatxt = fopen("listamaterias.txt", "r"); // Abre o arquivo para leitura
+    if (listatxt == NULL) { // Se o arquivo não existir ( NULL) ele ira entrar na condição e criar
+        listatxt = fopen("listamaterias.txt", "a"); //Abre o arquivo para escrita caso não exista ele cria
+    }
+    fclose(listatxt); // fecha e salva o arquivo
 
+    int materia_ja_cadastrada = 0; // incia o contador de materia cadastrada
+     FILE *listaMateriasTxt = fopen("listamaterias.txt", "r+");
+     // percorre todas as linhas para verificar se a matéria já existe
+    while (fgets(buffer, sizeof(buffer), listaMateriasTxt)) { 
+        buffer[strcspn(buffer, "\n")] = 0;  // Remove o '\n' para fazer a comparação corretamente
+        if (strcmp(buffer, questao->materia) == 0) { // compara o buffer que foi lido pelo while e a materia do cadastro se as strings são iguais
+            materia_ja_cadastrada = 1; // caso a função strcmp retorne verdadeiro(== 0 ) Significa que a materia ja esta no arquivo listamaterias.txt 
+            break;  // Se a matéria já foi encontrada, não precisa continuar o loop
+        }
+    }
+
+    // Se a matéria não foi encontrada, adiciona ao arquivo
+    if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
+       /// fseek(listaMateriasTxt, 0, SEEK_END); // Move o ponteiro do arquivo para o final para escrever
+        fprintf(listaMateriasTxt, "%s\n", questao->materia); // imprime a materia no arquivo
+    }
+
+    fclose(listaMateriasTxt); // Fecha o arquivo após a operação
+    
+
+}
 void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     int resposta; // Variável para armazenar a resposta do usuário
     char rquestao[80];// Variável para armazenar a matéria selecionada pelo usuário
