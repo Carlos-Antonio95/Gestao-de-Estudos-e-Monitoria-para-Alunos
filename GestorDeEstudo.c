@@ -204,12 +204,14 @@ void cadastrarQuestao(Questao * questao){
     }
 
     // Captura a resposta correta
-
+    int respostaCorreta = 0;// inicializa em 0
     do{
         printf("Número da questão correta(1 a 5): ");
         fgets(questao -> resposta, 100, stdin);// Lê a resposta correta
-        contstring =strlen (questao->resposta);// Verifica o comprimento da resposta
-    }while(contstring != 2); // Continua pedindo se a entrada estiver vazia
+        respostaCorreta = atoi(questao->resposta);// converte a string para int
+    }while(respostaCorreta < 1 || respostaCorreta > 5); // Continua pedindo até ser digitado o número valido
+  
+
     
     questao -> resposta[strcspn(questao -> resposta, "\n")] = '\0'; // Remove a nova linha da resposta
     Sleep(500); // Pausa para melhorar a experiência do usuário
@@ -311,10 +313,10 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         do {
             printf("Número da questão correta(1 a 5): ");
             scanf("%i",&resposta); // Lê a resposta
-        } while (resposta < 1 || resposta > 5 ); // Continua pedindo se a entrada estiver vazia
+        } while (resposta < 1 || resposta > 5 ); // Continua pedindo até ser um número vailido entre 1 e 5
         if (repostaInt == resposta) { // Verifica se a resposta está correta
             (*acertos)++;
-            printf("Você acerto a questão.\n");//Vi dizer ao usuário se ele acertou ou não, vai ser retirado depois vamos dexiar para facilitar o estudo durante as provas
+            printf("Você acerto a questão.\n");//vai dizer ao usuário se ele acertou ou não, vai ser retirado depois vamos dexiar para facilitar o estudo durante as provas
         }
         
     }
