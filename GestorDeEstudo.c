@@ -260,11 +260,11 @@ void cadastrarQuestao(Questao * questao){
     fclose(listatxt); // fecha e salva o arquivo
 
     int materia_ja_cadastrada = 0; // incia o contador de materia cadastrada
-     FILE *listaMateriasTxt = fopen("listamaterias.txt", "r+");
+     FILE *listaMateriasTxt = fopen("listamaterias.txt", "r+"); // Abre o arquivo para leitura e escrita
      // percorre todas as linhas para verificar se a matéria já existe
     while (fgets(buffer, sizeof(buffer), listaMateriasTxt)) { 
         buffer[strcspn(buffer, "\n")] = 0;  // Remove o '\n' para fazer a comparação corretamente
-        if (strcmp(buffer, questao->materia) == 0) { // compara o buffer que foi lido pelo while e a materia do cadastro se as strings são iguais
+        if (strcmp(buffer, questao->materia) == 0) { // compara o buffer que foi lido pelo while e a materia  cadastrada se as strings são iguais
             materia_ja_cadastrada = 1; // caso a função strcmp retorne verdadeiro(== 0 ) Significa que a materia ja esta no arquivo listamaterias.txt 
             break;  // Se a matéria já foi encontrada, não precisa continuar o loop
         }
@@ -272,7 +272,6 @@ void cadastrarQuestao(Questao * questao){
 
     // Se a matéria não foi encontrada, adiciona ao arquivo
     if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
-       /// fseek(listaMateriasTxt, 0, SEEK_END); // Move o ponteiro do arquivo para o final para escrever
         fprintf(listaMateriasTxt, "%s\n", questao->materia); // imprime a materia no arquivo
     }
 
