@@ -62,6 +62,9 @@ void cadastrarAluno(Aluno *aluno){
         printf("Digite sua matrícula: ");
         fgets(aluno->matriculaAluno,20,stdin);  
         contstring = strlen(aluno->matriculaAluno);// Obtem o comprimento da string
+        if(contstring <= 10){
+            printf("Matrícula invalida!\n");
+        }
     }while(contstring <= 10);//Garante que a matricula tenha pelo menos 10 caracteres
     aluno -> matriculaAluno[strcspn(aluno -> matriculaAluno, "\n")] = '\0'; // Remove a nova linha do final da string
     Sleep(500); // Pausa a execução por 500 milissegundos
@@ -185,7 +188,7 @@ void gerarCronograma(Cronograma *cronograma){
         printf("Disciplina: %s = %d minutos de estudo\n", cronograma->disciplinas[i], tempoPorDisciplina);
     }
     Sleep(500);
-    printf("Resolução de questões: %d questões por diciplina", cronograma->questoesPorEstudo / cronograma->quantdisciplinas);// Exibe a quantidade de questões que o aluno deseja resolver
+    printf("Resolução de questões: %d questões por diciplina\n", cronograma->questoesPorEstudo / cronograma->quantdisciplinas);// Exibe a quantidade de questões que o aluno deseja resolver
     Sleep(1000);
 }
 
@@ -260,11 +263,11 @@ void cadastrarQuestao(Questao * questao){
     fclose(listatxt); // fecha e salva o arquivo
 
     int materia_ja_cadastrada = 0; // incia o contador de materia cadastrada
-     FILE *listaMateriasTxt = fopen("listamaterias.txt", "r+"); // Abre o arquivo para leitura e escrita
+     FILE *listaMateriasTxt = fopen("listamaterias.txt", "r+"); //abre o arquivo para leitura e escrita
      // percorre todas as linhas para verificar se a matéria já existe
     while (fgets(buffer, sizeof(buffer), listaMateriasTxt)) { 
         buffer[strcspn(buffer, "\n")] = 0;  // Remove o '\n' para fazer a comparação corretamente
-        if (strcmp(buffer, questao->materia) == 0) { // compara o buffer que foi lido pelo while e a materia  cadastrada se as strings são iguais
+        if (strcmp(buffer, questao->materia) == 0) { // compara o buffer que foi lido pelo while e a materia do cadastro se as strings são iguais
             materia_ja_cadastrada = 1; // caso a função strcmp retorne verdadeiro(== 0 ) Significa que a materia ja esta no arquivo listamaterias.txt 
             break;  // Se a matéria já foi encontrada, não precisa continuar o loop
         }
@@ -272,6 +275,7 @@ void cadastrarQuestao(Questao * questao){
 
     // Se a matéria não foi encontrada, adiciona ao arquivo
     if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
+       /// fseek(listaMateriasTxt, 0, SEEK_END); // Move o ponteiro do arquivo para o final para escrever
         fprintf(listaMateriasTxt, "%s\n", questao->materia); // imprime a materia no arquivo
     }
 
@@ -301,7 +305,9 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     
     FILE *file = fopen(rquestao, "r"); // Abre o arquivo da matéria selecionada
     if (file == NULL) {
+        Sleep(500);
         printf("Erro ao abrir o arquivo de questões.\n");
+        Sleep(800);
         return;// Retorna em caso de erro
     }
 
@@ -433,7 +439,8 @@ void consultarAlunos() {
                 }
                 fclose(lista); // Fecha o arquivo apois a leitura
                     }
-       
+                system("pause");
+                system("cls");
                 break;
             case 2 :
 
@@ -455,6 +462,8 @@ void consultarAlunos() {
             }
             fclose(file);
                 }
+            system("pause");
+            system("cls");
                 break;
             case 0: // Sai do loop e volta ao menu anterior
             parar ++;
@@ -469,12 +478,14 @@ void consultarAlunos() {
 
 // Função para consultar questoes
 void consultarQuestoes() {
+    system("cls");
     FILE *lista;  // Ponteiro para o arquivo que armazena a lista de disciplinas
     FILE *file; // Ponteiro para o arquivo que armazena as questões de uma disciplina
     char materia[80];   // Varíavel para armazenar o nome da disciplina para consulta
     char buffer[255];  // Buffer para ler linhas dos arquivos
     printf("Consultar Questões:\n");
     Sleep(500);
+    
     while (1) { // Loop para continuar a consulta até que o usúrio decida sair 
         printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
         lista = fopen("listamaterias.txt","r"); // Acessa e ler o arquivo com a lista de todas as disciplinas
@@ -484,7 +495,9 @@ void consultarQuestoes() {
         fclose(lista);   // Fecha o arquivo apois a leitura
         
         printf("Digite a disciplina  para consultar (ou '0' para voltar ao menu anterior): \n"); // Solicita ao usúrio o nome da disciplina para consultar questões
+        printf(">>> ");        
         fgets(materia, 80, stdin);
+        system("cls");
         materia[strcspn(materia, "\n")] = '\0';
         if (strcmp(materia, "0") == 0){  // Se o usúrio digitar "0", sai do loop
              break;
@@ -498,6 +511,8 @@ void consultarQuestoes() {
                 printf("%s", buffer);
                 Sleep(300);
             }
+            system("pause");
+            system("cls");
             fclose(file);
             Sleep(800);
         }
@@ -508,6 +523,7 @@ void consultarQuestoes() {
 void consultarMonitores() {
     FILE *file;  // Ponteiro para o arquivo que armazena dados dos monitores
     char buffer[255]; // Buffer para ler linhas do arquivo
+    system("cls");
     printf("Consultar Monitores:\n");
     Sleep(500);
     while (1) {  // Loop para continuar a consulta até que o usúrio decida sair
@@ -519,6 +535,8 @@ void consultarMonitores() {
             while (fgets(buffer, sizeof(buffer), file)) { // Ler e imprime o conteúdo do arquivo
                 printf("%s", buffer);
             }
+            system("pause");
+            system("cls");
             fclose(file);
             Sleep(500);
             break;
@@ -530,9 +548,9 @@ void consultarMonitores() {
 void menuConsulta(){
     int opcao1; // Varíavel para armazenar a opção escolhida pelo usúrio
     do{
-            
+            system("cls");
             mostrarlinha(); // Função para mostrar uma linha no console
-            printf("\t    Menu Consulta Aluno\n\n");
+            printf("\tMenu de Consultas\n\n");
             printf("1 -> Consultar Aluno\n");
             printf("2 -> Consultar Questões\n");
             printf("3 -> Consultar Monitor\n");
@@ -544,6 +562,7 @@ void menuConsulta(){
             switch (opcao1){  // Switch para executar a apção com base na opção escolhida
 
                 case 1:
+                    system("cls");
                     consultarAlunos();  // Chama a função para consultar alunos
                     break;
                 case 2:
@@ -577,6 +596,7 @@ int main(){
     int opcao; // Varíavel para armazenar a opção escolhida pelo usúrio
     int acertos; // Varíavel para armazenar o número de acertos nas questões
     do{
+        system("cls");
         mostrarlinha();
         printf("\t    Menu\n\n");
         printf("1 -> Cadastrar Aluno\n");
@@ -593,12 +613,15 @@ int main(){
         getchar();
         switch(opcao){
             case 1:
+            system("cls");
             cadastrarAluno(&aluno);
             break;
             case 2:
             gerarCronograma(&cronograma);
+            system("pause");
             break;
             case 3:
+            system("cls");
             if (numQuestoes < 10){ // Verifica se o número de questões é menor que 10
                 cadastrarQuestao(&questoes[numQuestoes]); // Chama a função para cadastrar uma nova questï¿½o
                 numQuestoes++;  // Incrementa o nï¿½mero de questões cadastradas
@@ -623,6 +646,7 @@ int main(){
                 }
                 break;
             case 5:
+                system("cls");
                 cadastrarMonitor(&monitor); // Chama a função para cadastrar um monitor
                 break;
             case 6:
