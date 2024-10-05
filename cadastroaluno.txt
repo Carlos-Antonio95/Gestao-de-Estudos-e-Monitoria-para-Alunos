@@ -38,3 +38,9 @@ Disciplina 2: algoritimos
 Disciplina 3: bds
 Tempo Disponível para Estudo (em minutos): 50
 Quantidade de Questões que Deseja Responder: 1
+Nome: qualuer nome
+Matricula: 20242903636
+Curso: ads
+Periodo: 1
+Quantidade de Disciplinas: 1
+Disciplina 1: a

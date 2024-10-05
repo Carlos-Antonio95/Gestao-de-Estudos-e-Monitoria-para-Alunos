@@ -4,6 +4,7 @@
 #include <stdlib.h>  // Inclui a biblioteca para funcionalidaes utilitarias
 #include <windows.h> // Inclui a biblioteca para funções específicas do Windows
 
+
 // Estrutura para armazenar informaçõeses de um aluno
 typedef struct {
     char nome [80]; // Nome do aluno
@@ -286,7 +287,7 @@ void cadastrarQuestao(Questao * questao){
 void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     int resposta; // Variável para armazenar a resposta do usuário
     char rquestao[80];// Variável para armazenar a matéria selecionada pelo usuário
-    char buffer[255]; // Buffer para leitura de linhas do arquivo
+    char buffer[510]; // Buffer para leitura de linhas do arquivo
 
     FILE *lista;// Ponteiro para o arquivo da lista de matérias
     *acertos = 0; // Inicializa o contador de acertos
@@ -617,6 +618,7 @@ int main(){
             cadastrarAluno(&aluno);
             break;
             case 2:
+            system("cls");
             gerarCronograma(&cronograma);
             system("pause");
             break;
@@ -643,6 +645,7 @@ int main(){
                 resolverQuestoes(questoes, numQuestoes, &acertos); // Chama a função para resolver questões
                 Sleep(600);
                 printf("Voce acertou %d de %d questões. \n", acertos, questoes->totQuest); // Exibe o número de acertos
+                Sleep(600);
                 }
                 break;
             case 5:
