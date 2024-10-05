@@ -428,6 +428,7 @@ void consultarAlunos() {
         printf("Sua opção: ");
         scanf("%i",&opcao); // Ler a opção escolhida pelo usúrio
         getchar(); // Limpa o buffer de entrada
+        system("cls");
         Sleep(500);
         switch (opcao){
             case 1 :  // Acessa e ler o arquivo com a lista de todos os alunos
@@ -530,7 +531,10 @@ void consultarMonitores() {
     while (1) {  // Loop para continuar a consulta até que o usúrio decida sair
         file = fopen("cadastromonitor.txt", "r");  // Acessa e ler o arquivo com os dados dos monitores
         if (file == NULL) {
+            printf("Analisando...\n");
+            Sleep(800);
             printf("Monitor não encontrado.\n");
+            Sleep(1000);
             break;
         } else { 
             while (fgets(buffer, sizeof(buffer), file)) { // Ler e imprime o conteúdo do arquivo
