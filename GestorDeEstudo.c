@@ -287,7 +287,7 @@ void cadastrarQuestao(Questao * questao){
 void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     int resposta; // Variável para armazenar a resposta do usuário
     char rquestao[80];// Variável para armazenar a matéria selecionada pelo usuário
-    char buffer[510]; // Buffer para leitura de linhas do arquivo
+    char buffer[1000]; // Buffer para leitura de linhas do arquivo
 
     FILE *lista;// Ponteiro para o arquivo da lista de matérias
     *acertos = 0; // Inicializa o contador de acertos
@@ -592,7 +592,7 @@ int main(){
     setlocale(LC_ALL, "Portuguese_Brazil"); // Configura a localização para portugues do Brasil
     Aluno aluno; // Declara uma varíavel do tipo Aluno
     Cronograma cronograma; //Declara uma varíavel do tipo Cronograma
-    Questao questoes[10]; // Declara um array de Questao com capacidade para 10 questões
+    Questao questoes[20]; // Declara um array de Questao com capacidade para 10 questões
     questoes->quantQuest = 0; // Inicializa a quantidade de questões cadastradas para 0
     Monitor monitor;  // Declara uma varíavel do tipo Monitor
     monitor.quant = 0; // Inicializa a quantidade de monitores cadastrados para 0
@@ -628,7 +628,7 @@ int main(){
             break;
             case 3:
             system("cls");
-            if (numQuestoes < 10){ // Verifica se o número de questões é menor que 10
+            if (numQuestoes < 20){ // Verifica se o número de questões é menor que 10
                 cadastrarQuestao(&questoes[numQuestoes]); // Chama a função para cadastrar uma nova questï¿½o
                 numQuestoes++;  // Incrementa o nï¿½mero de questões cadastradas
                 questoes->quantQuest++; // Incrementa a quantidade de questões no array de questões
@@ -649,6 +649,7 @@ int main(){
                 resolverQuestoes(questoes, numQuestoes, &acertos); // Chama a função para resolver questões
                 Sleep(600);
                 printf("Voce acertou %d de %d questões. \n", acertos, questoes->totQuest); // Exibe o número de acertos
+                system("pause");
                 Sleep(600);
                 }
                 break;
