@@ -277,7 +277,7 @@ void cadastrarQuestao(Questao * questao){
     // Se a matéria não foi encontrada, adiciona ao arquivo
     if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
        /// fseek(listaMateriasTxt, 0, SEEK_END); // Move o ponteiro do arquivo para o final para escrever
-        fprintf(listaMateriasTxt, "%s\n", questao->materia); // imprime a materia no arquivo
+        fprintf(listaMateriasTxt, "Materia:%s\n", questao->materia); // imprime a materia no arquivo
     }
 
     fclose(listaMateriasTxt); // Fecha o arquivo após a operação
@@ -592,7 +592,7 @@ int main(){
     setlocale(LC_ALL, "Portuguese_Brazil"); // Configura a localização para portugues do Brasil
     Aluno aluno; // Declara uma varíavel do tipo Aluno
     Cronograma cronograma; //Declara uma varíavel do tipo Cronograma
-    Questao questoes[20]; // Declara um array de Questao com capacidade para 10 questões
+    Questao questoes[50]; // Declara um array de Questao com capacidade para 10 questões
     questoes->quantQuest = 0; // Inicializa a quantidade de questões cadastradas para 0
     Monitor monitor;  // Declara uma varíavel do tipo Monitor
     monitor.quant = 0; // Inicializa a quantidade de monitores cadastrados para 0

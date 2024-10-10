@@ -44,3 +44,17 @@ Curso: ads
 Periodo: 1
 Quantidade de Disciplinas: 1
 Disciplina 1: a
+Nome: pernalonga da silva
+Matricula: 1234567890
+Curso: ads
+Periodo: 4
+Quantidade de Disciplinas: 3
+Disciplina 1: logica
+Disciplina 2: banco da dos
+Disciplina 3: ingles
+Nome: 1
+Matricula: 1234567898
+Curso: 123
+Periodo: 2
+Quantidade de Disciplinas: 1
+Disciplina 1: a
