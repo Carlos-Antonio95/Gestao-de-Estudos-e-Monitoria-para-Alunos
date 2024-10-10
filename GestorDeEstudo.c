@@ -277,7 +277,7 @@ void cadastrarQuestao(Questao * questao){
     // Se a matéria não foi encontrada, adiciona ao arquivo
     if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
        /// fseek(listaMateriasTxt, 0, SEEK_END); // Move o ponteiro do arquivo para o final para escrever
-        fprintf(listaMateriasTxt, "Materia:%s\n", questao->materia); // imprime a materia no arquivo
+        fprintf(listaMateriasTxt, "%s\n", questao->materia); // imprime a materia no arquivo
     }
 
     fclose(listaMateriasTxt); // Fecha o arquivo após a operação
@@ -362,7 +362,6 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         } while (resposta < 1 || resposta > 5 ); // Continua pedindo até ser um número vailido entre 1 e 5
         if (repostaInt == resposta) { // Verifica se a resposta está correta
             (*acertos)++;
-            printf("Você acerto a questão.\n");//vai dizer ao usuário se ele acertou ou não, vai ser retirado depois vamos dexiar para facilitar o estudo durante as provas
         }
         
     }
