@@ -359,6 +359,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         do {
             printf("Número da questão correta(1 a 5): ");
             scanf("%i",&resposta); // Lê a resposta
+            printf("\n");
         } while (resposta < 1 || resposta > 5 ); // Continua pedindo até ser um número vailido entre 1 e 5
         if (repostaInt == resposta) { // Verifica se a resposta está correta
             (*acertos)++;
