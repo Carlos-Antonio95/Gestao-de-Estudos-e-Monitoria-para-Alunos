@@ -63,10 +63,10 @@ void cadastrarAluno(Aluno *aluno){
         printf("Digite sua matrícula: ");
         fgets(aluno->matriculaAluno,20,stdin);  
         contstring = strlen(aluno->matriculaAluno);// Obtem o comprimento da string
-        if(contstring <= 10){
+        if(contstring != 11){
             printf("Matrícula invalida!\n");
         }
-    }while(contstring <= 10);//Garante que a matricula tenha pelo menos 10 caracteres
+    }while(contstring != 11);//Garante que a matricula tenha pelo menos 10 caracteres
     aluno -> matriculaAluno[strcspn(aluno -> matriculaAluno, "\n")] = '\0'; // Remove a nova linha do final da string
     Sleep(500); // Pausa a execução por 500 milissegundos
 
@@ -276,7 +276,6 @@ void cadastrarQuestao(Questao * questao){
 
     // Se a matéria não foi encontrada, adiciona ao arquivo
     if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
-       /// fseek(listaMateriasTxt, 0, SEEK_END); // Move o ponteiro do arquivo para o final para escrever
         fprintf(listaMateriasTxt, "%s\n", questao->materia); // imprime a materia no arquivo
     }
 
@@ -571,7 +570,7 @@ void menuConsulta(){
                     consultarAlunos();  // Chama a função para consultar alunos
                     break;
                 case 2:
-                    consultarQuestoes();  // Chama a função para consultar questï¿½es
+                    consultarQuestoes();  // Chama a função para consultar questões
                     break; 
                 case 3:
                     consultarMonitores(); // Chama a função para consultar monitores
@@ -609,7 +608,7 @@ int main(){
         printf("3 -> Cadastrar Questões\n");
         printf("4 -> Resolver Questões\n");
         printf("5 -> Cadastrar Monitor\n");
-        printf("6 -> Consultas:\n");
+        printf("6 -> Consultas\n");
         printf("0 -> Sair");
         mostrarlinha();
         Sleep(400);
@@ -629,7 +628,7 @@ int main(){
             case 3:
             system("cls");
             if (numQuestoes < 20){ // Verifica se o número de questões é menor que 10
-                cadastrarQuestao(&questoes[numQuestoes]); // Chama a função para cadastrar uma nova questï¿½o
+                cadastrarQuestao(&questoes[numQuestoes]); // Chama a função para cadastrar uma nova questão
                 numQuestoes++;  // Incrementa o nï¿½mero de questões cadastradas
                 questoes->quantQuest++; // Incrementa a quantidade de questões no array de questões
             }
