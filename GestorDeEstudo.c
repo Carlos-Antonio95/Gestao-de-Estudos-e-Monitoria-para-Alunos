@@ -56,6 +56,9 @@ void cadastrarAluno(Aluno *aluno){
         printf("Nome do Aluno: ");
         fgets(aluno -> nome, 50, stdin); // Linha a linha de entrada para o nome do aluno
         contstring = strlen(aluno->nome);  // Obtem o comprimento da string
+        if(contstring <=1 ){
+            printf("Nome invalido! Quantidade mínima 1 caractere.\n");
+        }
     }while(contstring <= 1);  // Garante que o nome tenha pelo menos um caractere
     aluno -> nome[strcspn(aluno -> nome, "\n")] = '\0'; // Remove o caractere de nova linha
     Sleep(600); // Pausa a execução por 600 milissegundos
@@ -76,6 +79,9 @@ void cadastrarAluno(Aluno *aluno){
         printf("Curso: ");
         fgets(aluno -> curso, 50, stdin);// Lê a entrada do usuário
         contstring = strlen(aluno->curso);
+        if(contstring <= 1){
+            printf("Curso invalido! Quantidade mínima 1 caractere.\n");
+        }
     }while(contstring <= 1); //garantindo que não seja vazio
     aluno -> curso[strcspn(aluno -> curso, "\n")] = '\0';// Remove a nova linha do final da string
     Sleep(500);// Pausa a execução por 500 milissegundos
@@ -86,7 +92,10 @@ void cadastrarAluno(Aluno *aluno){
         printf("Periodo: ");
         scanf("%d", &aluno -> periodo);
         getchar(); // Limpa o buffer de entrada
-    }while(aluno->periodo < 1 || aluno->periodo > 16); // Garante que o período esteja entre 1 e 16
+        if (aluno->periodo < 1 || aluno->periodo > 12 ){
+            printf("Periodo invalido! Digite um perido entre 1 e 12.\n");
+        }
+    }while(aluno->periodo < 1 || aluno->periodo > 12); // Garante que o período esteja entre 1 e 12
 
     // Captura a quantidade de disciplinas, garantindo um valor entre 1 e 10
 
@@ -102,6 +111,9 @@ void cadastrarAluno(Aluno *aluno){
             printf("Disciplina %d: ", i + 1); 
             fgets(aluno -> disciplinas[i], 80, stdin); // Lê a entrada do nome da disciplina
             contstring = strlen(aluno->disciplinas[i]);
+            if(contstring <= 1){
+                printf("Disciplina invalida! Quantidade mínima 1 caractere.\n");
+            }
         }while(contstring <= 1);
         aluno -> disciplinas[i] [strcspn(aluno -> disciplinas[i], "\n")] = '\0'; // Remove a nova linha do final da string
     }
@@ -161,6 +173,10 @@ void gerarCronograma(Cronograma *cronograma){
             printf("Disciplina %d: ", i + 1); 
             fgets(cronograma -> disciplinas[i], 80, stdin); // Lê a entrada do nome da disciplina
             contstring = strlen(cronograma->disciplinas[i]);
+            if (contstring <= 1){
+                printf("Discplina invalida! Quantidade mínima 1 caractere.\n");
+            }
+       
         }while(contstring <= 1);
         cronograma -> disciplinas[i] [strcspn(cronograma -> disciplinas[i], "\n")] = '\0'; // Remove a nova linha do final da string
     }
@@ -169,14 +185,19 @@ void gerarCronograma(Cronograma *cronograma){
         printf("Tempo disponivel para estudo (em minutos): ");
         scanf("%d", &cronograma -> tempoDisponivel);// Lê a entrada do usuário
         getchar(); // Limpa o buffer de entrada
-        
+        if(cronograma->tempoDisponivel <= 0 || cronograma->tempoDisponivel > 1440){
+           printf("Prezamos pela sua saúde! Tempo máximo de estudo 1440 minutos(24hrs)\n"); 
+        }
     }while(cronograma->tempoDisponivel <= 0 || cronograma->tempoDisponivel > 1440);// Garante que o tempo esteja entre 1 minuto e 24 horas (1440 minutos)
     Sleep(500);
     do{
         printf("Quantidade de questões que deseja responder ao término do estudo: ");
         scanf("%d", &cronograma -> questoesPorEstudo);// Lê a entrada do usuário
         getchar();
-    }while(cronograma->questoesPorEstudo <=0 || cronograma->questoesPorEstudo > 10000); // Garante que a quantidade esteja entre 1 e 10.000
+        if(cronograma->questoesPorEstudo <=0 || cronograma->questoesPorEstudo > 1000){
+            printf("Mínimo de questoes 1 e máximo de questões 1000.\n");
+        }
+    }while(cronograma->questoesPorEstudo <=0 || cronograma->questoesPorEstudo > 1000); // Garante que a quantidade esteja entre 1 e 1.00
     Sleep(500); // Pausa a execução por 500 milissegundos
 
     // Calcula o tempo disponível para estudo por disciplina
@@ -204,16 +225,22 @@ void cadastrarQuestao(Questao * questao){
     printf("Matéria: ");
     fgets(questao -> materia, 80, stdin);// Lê a entrada do usuário
     contstring = strlen(questao->materia);// Armazena o comprimento da matéria
-    Sleep(600); // Pausa para melhorar a experiência do usuário
+    if(contstring <= 1){
+        printf("Matéria invalida! Quantidade mínima 1 caractere.\n");
+    }
     }while(contstring <= 1); //Continua pedindo se a entrada estiver vazia
     questao -> materia[strcspn(questao -> materia, "\n")] = '\0';// Remove a nova linha do final da string
-
+    Sleep(600); // Pausa para melhorar a experiência do usuário
     // Captura o enunciado da questão
 
     do{
         printf("Enunciado da questão: ");
         fgets(questao -> enunciado, 250, stdin); // Lê a entrada do usuário
         contstring = strlen(questao->enunciado); // Verifica o comprimento do enunciado
+        if (contstring <= 1){
+           printf("Enunciado invalido! Quantidade mínima 1 caractere.\n");
+        }
+        
     }while(contstring <= 1); // Continua pedindo se a entrada estiver vazia
     questao -> enunciado[strcspn(questao -> enunciado, "\n")] = '\0'; // Remove a nova linha do final da string
     Sleep(500);  // Pausa para melhorar a experiência do usuário    
@@ -225,6 +252,9 @@ void cadastrarQuestao(Questao * questao){
             printf("Alternativa %i: ",i+1); 
             fgets(questao -> alternativas[i], 100, stdin);  // Lê a alternativa
             contstring = strlen(questao->alternativas[i]); // Verifica o comprimento da alternativa
+            if (contstring <=1){
+                printf("Alternativa invalida! Quantidade mínima 1 caractere.\n");
+            }   
         }while(contstring <= 1) ; // Continua pedindo se a entrada estiver vazia
     }
 
@@ -374,6 +404,9 @@ void cadastrarMonitor(Monitor *monitor){
         printf("Nome do Monitor: ");
         fgets(monitor->nome, 50, stdin); // Captura o nome do monitor
         contstring = strlen(monitor->nome);
+        if(contstring <= 1){
+            printf("Monitor invalido! Quantidade mínima 1 caractere.\n");
+        }
     }while(contstring <=1); //garantindo que não seja vazio
     monitor->nome[strcspn(monitor->nome, "\n")] = '\0'; // Remove o caractere de nova linha
     (monitor->quant = 1); // Inicializa a quantidade de monitores
@@ -385,6 +418,10 @@ void cadastrarMonitor(Monitor *monitor){
         printf("Horário disponivel para monitoria: ");
         fgets(monitor->horario, 80, stdin); // Lê a entrada do horário
         contstring = strlen(monitor->horario); 
+        if (contstring <= 5){
+            printf("Formato de hora invalido!\n");
+        }
+        
     }while(contstring <= 5);// Garante que o horário tenha pelo menos 5 caracteres
     monitor->horario[strcspn(monitor->horario, "\n")] = '\0'; // Remove o caractere de nova linha
     Sleep(500); // Pausa a execução por 500 milissegundos
@@ -392,7 +429,11 @@ void cadastrarMonitor(Monitor *monitor){
         printf("Telefone para contato: 9. ");
         fgets(monitor->telefone, 80, stdin); // Lê a entrada do telefone
         contstring = strlen(monitor->telefone);
-    }while(contstring <= 8); // Garante que o telefone tenha pelo menos 8 caracteres
+        if (contstring != 9){
+            printf("Telefone invalido!\n");
+        }
+        
+    }while(contstring != 9); // Garante que o telefone tenha pelo menos 8 caracteres
     monitor->telefone[strcspn(monitor->telefone, "\n")] = '\0';  // Remove o caractere de nova linha
     Sleep(500);// Pausa a execução por 500 milissegundos
     printf("Cadastrando....\n");
