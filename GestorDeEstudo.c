@@ -192,7 +192,7 @@ void gerarCronograma(Cronograma *cronograma){
             }
             
         
-     FILE *listaTxt = fopen("listamaterias.txt", "r"); //abre o arquivo para leitura e escrita
+     FILE *listaTxt = fopen("listamaterias.txt", "r"); //abre o arquivo para leitura
      // percorre todas as linhas para verificar se a matéria já existe
     while (fgets(buffer, sizeof(buffer), listaTxt)) { 
         buffer[strcspn(buffer, "\n")] = 0;  // Remove o '\n' para fazer a comparação corretamente
@@ -202,7 +202,7 @@ void gerarCronograma(Cronograma *cronograma){
         }
     }
 
-    // Se a matéria não foi encontrada, adiciona ao arquivo
+    // Se a matéria não foi encontrada
     if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
         printf("Diciplina não cadastrada no banco de dados\n"); // imprime a materia no arquivo
     }
