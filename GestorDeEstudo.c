@@ -276,6 +276,10 @@ void cadastrarQuestao(Questao * questao){
 
     // Se a matéria não foi encontrada, adiciona ao arquivo
     if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
+<<<<<<< Updated upstream
+=======
+       /// fseek(listaMateriasTxt, 0, SEEK_END); // Move o ponteiro do arquivo para o final para escrever
+>>>>>>> Stashed changes
         fprintf(listaMateriasTxt, "%s\n", questao->materia); // imprime a materia no arquivo
     }
 
