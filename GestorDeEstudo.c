@@ -162,6 +162,7 @@ void gerarCronograma(Cronograma *cronograma){
     int contstring;
     FILE *lista;
     char buffer[250];
+    char buffer1[250];
     printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
     lista = fopen("listamaterias.txt","r"); // Acessa e ler o arquivo com a lista de todas as disciplinas
     while (fgets(buffer, sizeof(buffer), lista)) {
@@ -173,19 +174,45 @@ void gerarCronograma(Cronograma *cronograma){
         scanf("%i",&cronograma->quantdisciplinas);// Lê a entrada do usuário
         getchar();
      } while (cronograma->quantdisciplinas > 10 || cronograma->quantdisciplinas < 1); // Garante que a quantidade esteja entre 1 e 10
-
+    int materia_ja_cadastrada = 0; // incia o contador de materia cadastrada
+    FILE *listatxt = fopen("listamaterias.txt", "r"); // Abre o arquivo para leitura
+    if (listatxt == NULL) { // Se o arquivo não existir ( NULL) ele ira entrar na condição e criar
+        listatxt = fopen("listamaterias.txt", "a"); //Abre o arquivo para escrita caso não exista ele cria
+    }
+    fclose(listatxt); // fecha e salva o arquivo
     for(int i = 0; i < cronograma->quantdisciplinas; i++){
         Sleep(500); // Pausa a execução para melhorar a experiência do usuário
         do{
             printf("Disciplina %d: ", i + 1); 
             fgets(cronograma -> disciplinas[i], 80, stdin); // Lê a entrada do nome da disciplina
+            cronograma -> disciplinas[i] [strcspn(cronograma -> disciplinas[i], "\n")] = '\0'; // Remove a nova linha do final da string
             contstring = strlen(cronograma->disciplinas[i]);
             if (contstring <= 1){
                 printf("Discplina invalida! Quantidade mínima 1 caractere.\n");
             }
+            
+        
+     FILE *listaTxt = fopen("listamaterias.txt", "r"); //abre o arquivo para leitura e escrita
+     // percorre todas as linhas para verificar se a matéria já existe
+    while (fgets(buffer, sizeof(buffer), listaTxt)) { 
+        buffer[strcspn(buffer, "\n")] = 0;  // Remove o '\n' para fazer a comparação corretamente
+        if (strcmp(buffer, cronograma->disciplinas[i]) == 0) { // compara o buffer que foi lido pelo while e a materia do cadastro se as strings são iguais
+            materia_ja_cadastrada = 1; // caso a função strcmp retorne verdadeiro(== 0 ) Significa que a materia ja esta no arquivo listamaterias.txt 
+            break;  // Se a matéria já foi encontrada, não precisa continuar o loop
+        }
+    }
+
+    // Se a matéria não foi encontrada, adiciona ao arquivo
+    if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
+        printf("Diciplina não cadastrada no banco de dados\n"); // imprime a materia no arquivo
+    }
+
+    fclose(listaTxt); // Fecha o arquivo após a operação
+        
+    
        
-        }while(contstring <= 1);
-        cronograma -> disciplinas[i] [strcspn(cronograma -> disciplinas[i], "\n")] = '\0'; // Remove a nova linha do final da string
+        }while(contstring <= 1 || materia_ja_cadastrada == 0);
+
     }
     Sleep(500); // Pausa a execução por 500 milissegundos
     do{
