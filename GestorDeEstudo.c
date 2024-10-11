@@ -160,9 +160,16 @@ void cadastrarAluno(Aluno *aluno){
 
 void gerarCronograma(Cronograma *cronograma){
     int contstring;
-
+    FILE *lista;
+    char buffer[250];
+    printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
+    lista = fopen("listamaterias.txt","r"); // Acessa e ler o arquivo com a lista de todas as disciplinas
+    while (fgets(buffer, sizeof(buffer), lista)) {
+            printf("%s", buffer);
+    }
+        fclose(lista);   // Fecha o arquivo apois a leitura
     do{
-        printf("Quantidade de disciplinas MAX 10: ");
+        printf("Quantidade de disciplinas que deseja estudar MAX 10: ");
         scanf("%i",&cronograma->quantdisciplinas);// Lê a entrada do usuário
         getchar();
      } while (cronograma->quantdisciplinas > 10 || cronograma->quantdisciplinas < 1); // Garante que a quantidade esteja entre 1 e 10
