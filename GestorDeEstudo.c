@@ -172,19 +172,19 @@ void gerarCronograma(Cronograma *cronograma){
         getchar();
         switch (opcao){
         case 1:
-            cadastrarQuestao(&questoes);
-            return 1;
+           cadastrarQuestao(&questoes);
+            return ;
             break;
         case 2:
             printf("Retornando ao menu principal.\n");
             Sleep(600);
-            return 1;
+            return ;
             break;
         default:
             printf("Opção invalida.\n");
             printf("Retornando ao menu principal.\n");
             Sleep(600);
-            return 1;
+            return ;
             break;
         }
     }else{
@@ -230,7 +230,7 @@ void gerarCronograma(Cronograma *cronograma){
         switch (opcao){
         case 1:
             cadastrarQuestao(&questoes);
-            return 1;
+            return ;
             break;
         case 2:
             continue;
@@ -239,7 +239,7 @@ void gerarCronograma(Cronograma *cronograma){
             printf("Opção invalida.\n");
             printf("Retornando ao menu principal.\n");
             Sleep(600);
-            return 1;
+            return ;
             break;
         }
 
@@ -286,6 +286,7 @@ void gerarCronograma(Cronograma *cronograma){
     Sleep(1000);
 }
 
+ 
 void cadastrarQuestao(Questao * questao){
     system("cls");
     Questao questoes;
@@ -362,7 +363,7 @@ void cadastrarQuestao(Questao * questao){
             printf("Opção invalida.\n");
             printf("Retornando ao menu principal.\n");
             Sleep(600);
-            return 1;
+            return ;
             break;
         }
 
