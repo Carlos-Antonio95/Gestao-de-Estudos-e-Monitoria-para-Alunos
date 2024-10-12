@@ -159,14 +159,34 @@ void cadastrarAluno(Aluno *aluno){
 }
 
 void gerarCronograma(Cronograma *cronograma){
-    int contstring;
+    Questao questoes;
+    int opcao;
     FILE *lista;
     char buffer[250];
-    char buffer1[250];
      FILE *listatxt = fopen("listamaterias.txt", "r"); // Abre o arquivo para leitura
     if (listatxt == NULL) { // Se o arquivo não existir ( NULL) ele ira entrar na condição e criar
-        listatxt = fopen("listamaterias.txt", "a"); //Abre o arquivo para escrita caso não exista ele cria
-        printf("Não tem disciplinas cadastradas");
+       // listatxt = fopen("listamaterias.txt", "a"); //Abre o arquivo para escrita caso não exista ele cria
+        printf("Não tem disciplinas cadastradas\n");
+        printf("Deseja cadastrar uma disciplina ? 1 = SIM / 2 = NÃO: ");
+        scanf("%d",&opcao);
+        getchar();
+        switch (opcao){
+        case 1:
+            cadastrarQuestao(&questoes);
+            return 1;
+            break;
+        case 2:
+            printf("Retornando ao menu principal.\n");
+            Sleep(600);
+            return 1;
+            break;
+        default:
+            printf("Opção invalida.\n");
+            printf("Retornando ao menu principal.\n");
+            Sleep(600);
+            return 1;
+            break;
+        }
     }else{
         printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
         lista = fopen("listamaterias.txt","r"); // Acessa e ler o arquivo com a lista de todas as disciplinas
@@ -189,12 +209,7 @@ void gerarCronograma(Cronograma *cronograma){
             printf("Disciplina %d: ", i + 1); 
             fgets(cronograma -> disciplinas[i], 80, stdin); // Lê a entrada do nome da disciplina
             cronograma -> disciplinas[i] [strcspn(cronograma -> disciplinas[i], "\n")] = '\0'; // Remove a nova linha do final da string
-            contstring = strlen(cronograma->disciplinas[i]);
-            if (contstring <= 1){
-                printf("Discplina invalida! Quantidade mínima 1 caractere.\n");
-            }
-            
-        
+
      FILE *listaTxt = fopen("listamaterias.txt", "r"); //abre o arquivo para leitura
      // percorre todas as linhas para verificar se a matéria já existe
     while (fgets(buffer, sizeof(buffer), listaTxt)) { 
@@ -203,18 +218,38 @@ void gerarCronograma(Cronograma *cronograma){
             materia_ja_cadastrada = 1; // caso a função strcmp retorne verdadeiro(== 0 ) Significa que a materia ja esta no arquivo listamaterias.txt 
             break;  // Se a matéria já foi encontrada, não precisa continuar o loop
         }
+        materia_ja_cadastrada = 0;
     }
 
     // Se a matéria não foi encontrada
     if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
         printf("Diciplina não cadastrada no banco de dados\n"); // imprime a materia no arquivo
+        printf("Deseja cadastrar a disciplina ? 1 = SIM / 2 = NÃO: ");
+        scanf("%d",&opcao);
+        getchar();
+        switch (opcao){
+        case 1:
+            cadastrarQuestao(&questoes);
+            return 1;
+            break;
+        case 2:
+            continue;
+            break;
+        default:
+            printf("Opção invalida.\n");
+            printf("Retornando ao menu principal.\n");
+            Sleep(600);
+            return 1;
+            break;
+        }
+
     }
 
     fclose(listaTxt); // Fecha o arquivo após a operação
         
     
        
-        }while(contstring <= 1 || materia_ja_cadastrada == 0);
+        }while( materia_ja_cadastrada == 0);
 
     }
     Sleep(500); // Pausa a execução por 500 milissegundos
@@ -252,6 +287,9 @@ void gerarCronograma(Cronograma *cronograma){
 }
 
 void cadastrarQuestao(Questao * questao){
+    system("cls");
+    Questao questoes;
+    int opcao;
     char buffer[255];
     int contstring; // Variável para contar o comprimento das strings
     Sleep(500); // Pausa para melhorar a experiência do usuário
@@ -309,8 +347,25 @@ void cadastrarQuestao(Questao * questao){
     Sleep(500); // Pausa para melhorar a experiência do usuário
     printf("Cadastrando...\n");
     Sleep(1000);// Pausa para simular o tempo de cadastro
-    printf("Questão cadastrada com Sucesso.");
+    printf("Questão cadastrada com Sucesso.\n");
     Sleep(1000);// Pausa para simular o tempo de cadastro
+    printf("Deseja cadastrar mais questões? 1 = SIM / 2 = NÃO: ");
+    scanf("%d",&opcao);
+    getchar();
+        switch (opcao){
+        case 1:
+            cadastrarQuestao(&questoes);
+            break;
+        case 2:
+            break;
+        default:
+            printf("Opção invalida.\n");
+            printf("Retornando ao menu principal.\n");
+            Sleep(600);
+            return 1;
+            break;
+        }
+
 
      // Abre o arquivo para armazenar a questão cadastrada
     FILE * questaotxt = fopen(questao->materia,"a"); // Grava a matéria no arquivo
