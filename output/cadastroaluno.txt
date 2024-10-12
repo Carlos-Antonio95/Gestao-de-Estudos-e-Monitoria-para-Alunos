@@ -1,0 +1,6 @@
+Nome: aluno1
+Matricula: 2024290636
+Curso: a
+Periodo: 1
+Quantidade de Disciplinas: 1
+Disciplina 1: a
