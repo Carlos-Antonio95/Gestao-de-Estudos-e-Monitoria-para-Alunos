@@ -163,23 +163,26 @@ void gerarCronograma(Cronograma *cronograma){
     FILE *lista;
     char buffer[250];
     char buffer1[250];
-    printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
-    lista = fopen("listamaterias.txt","r"); // Acessa e ler o arquivo com a lista de todas as disciplinas
-    while (fgets(buffer, sizeof(buffer), lista)) {
-            printf("%s", buffer);
+     FILE *listatxt = fopen("listamaterias.txt", "r"); // Abre o arquivo para leitura
+    if (listatxt == NULL) { // Se o arquivo não existir ( NULL) ele ira entrar na condição e criar
+        listatxt = fopen("listamaterias.txt", "a"); //Abre o arquivo para escrita caso não exista ele cria
+        printf("Não tem disciplinas cadastradas");
+    }else{
+        printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
+        lista = fopen("listamaterias.txt","r"); // Acessa e ler o arquivo com a lista de todas as disciplinas
+        while (fgets(buffer, sizeof(buffer), lista)) {
+                printf("%s", buffer);
+        }
+    fclose(lista);   // Fecha o arquivo apois a leitura
     }
-        fclose(lista);   // Fecha o arquivo apois a leitura
+    fclose(listatxt); // fecha e salva o arquivo
+    
     do{
         printf("Quantidade de disciplinas que deseja estudar MAX 10: ");
         scanf("%i",&cronograma->quantdisciplinas);// Lê a entrada do usuário
         getchar();
      } while (cronograma->quantdisciplinas > 10 || cronograma->quantdisciplinas < 1); // Garante que a quantidade esteja entre 1 e 10
     int materia_ja_cadastrada = 0; // incia o contador de materia cadastrada
-    FILE *listatxt = fopen("listamaterias.txt", "r"); // Abre o arquivo para leitura
-    if (listatxt == NULL) { // Se o arquivo não existir ( NULL) ele ira entrar na condição e criar
-        listatxt = fopen("listamaterias.txt", "a"); //Abre o arquivo para escrita caso não exista ele cria
-    }
-    fclose(listatxt); // fecha e salva o arquivo
     for(int i = 0; i < cronograma->quantdisciplinas; i++){
         Sleep(500); // Pausa a execução para melhorar a experiência do usuário
         do{
@@ -463,11 +466,11 @@ void cadastrarMonitor(Monitor *monitor){
         printf("Telefone para contato: 9. ");
         fgets(monitor->telefone, 80, stdin); // Lê a entrada do telefone
         contstring = strlen(monitor->telefone);
-        if (contstring != 9){
+        if (contstring != 9 && contstring != 10){
             printf("Telefone invalido!\n");
         }
         
-    }while(contstring != 9); // Garante que o telefone tenha pelo menos 8 caracteres
+    }while(contstring != 9 && contstring != 10); // Garante que o telefone tenha pelo menos 8 ou 9 caracteres
     monitor->telefone[strcspn(monitor->telefone, "\n")] = '\0';  // Remove o caractere de nova linha
     Sleep(500);// Pausa a execução por 500 milissegundos
     printf("Cadastrando....\n");
