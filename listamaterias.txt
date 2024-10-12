@@ -17,8 +17,3 @@ ads123
 abcd
 Materia: aqqqq
 Materia: aqqqq
-materiacarlos
-<<<<<<< Updated upstream
-carlosmateri
-=======
->>>>>>> Stashed changes
