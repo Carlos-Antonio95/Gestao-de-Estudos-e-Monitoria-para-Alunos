@@ -1,60 +1,6 @@
-Nome: Davidson Melo
-Matricula: 1122334455
-Curso: Analise de Sistemas
-Periodo: 8
-Quantidade de Disciplinas: 6
-Disciplina 1: Logica da programa‡Æo
-Disciplina 2: Banco de Dados
-Disciplina 3: Qualidade de Software
-Disciplina 4: Seguran‡a da Informa‡Æo
-Disciplina 5: Gerenciamento de Projeto
-Disciplina 6: Redes de Computadores
-Tempo Disponível para Estudo (em minutos): 120
-Quantidade de Questões que Deseja Responder: 10
-Nome: Carlos Antonio
-Matricula: 1122234455
-Curso: ADS
-Periodo: 1
-Quantidade de Disciplinas: 10
-Disciplina 1: Redes
-Disciplina 2: Inglˆs
-Disciplina 3: Logica de programa‡Æo
-Disciplina 4: 1
-Disciplina 5: 2
-Disciplina 6: 3
-Disciplina 7: 4
-Disciplina 8: 5
-Disciplina 9: 6
-Disciplina 10: 7
-Tempo Disponível para Estudo (em minutos): 120
-Quantidade de Questões que Deseja Responder: 5
-Nome: Carlos Antonio
-Matricula: 1122333455
-Curso: ADS
-Periodo: 1
-Quantidade de Disciplinas: 3
-Disciplina 1: logica 
-Disciplina 2: algoritimos 
-Disciplina 3: bds
-Tempo Disponível para Estudo (em minutos): 50
-Quantidade de Questões que Deseja Responder: 1
-Nome: qualuer nome
-Matricula: 20242903636
+Nome: novo1
+Matricula: 2024290636
 Curso: ads
 Periodo: 1
-Quantidade de Disciplinas: 1
-Disciplina 1: a
-Nome: pernalonga da silva
-Matricula: 1234567890
-Curso: ads
-Periodo: 4
-Quantidade de Disciplinas: 3
-Disciplina 1: logica
-Disciplina 2: banco da dos
-Disciplina 3: ingles
-Nome: 1
-Matricula: 1234567898
-Curso: 123
-Periodo: 2
 Quantidade de Disciplinas: 1
 Disciplina 1: a

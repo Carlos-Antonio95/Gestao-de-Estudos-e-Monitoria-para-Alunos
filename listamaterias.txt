@@ -1,19 +1,10 @@
-Matéria: Logica
-Matéria: Metodologia
-Matéria: Metodologia1
-Matéria: Metodologia2
-Matéria: Metodologia3
-Matéria: Metodologia4
-Matéria: Metodologia5
-Matéria: Redes
-Matéria: Ingles
-Matéria: Banco de Dados
-Matéria: Teste1
-Matéria: Teste1
-Matéria: TESTE5
-Matéria: TESTE5
-redes
-ads123
-abcd
-Materia: aqqqq
-Materia: aqqqq
+Logica
+Metodologia
+Metodologia1
+Metodologia2
+Metodologia3
+Metodologia4
+Metodologia5
+Redes
+Ingles
+Banco de Dados
