@@ -160,6 +160,7 @@ void cadastrarAluno(Aluno *aluno){
 
 void gerarCronograma(Cronograma *cronograma){
     Questao questoes;
+    Cronograma temp;
     int opcao;
     FILE *lista;
     char buffer[250];
@@ -201,6 +202,9 @@ void gerarCronograma(Cronograma *cronograma){
         printf("Quantidade de disciplinas que deseja estudar MAX 10: ");
         scanf("%i",&cronograma->quantdisciplinas);// Lê a entrada do usuário
         getchar();
+        if(cronograma->quantdisciplinas > 10 || cronograma->quantdisciplinas <= 0){
+            printf("Quantidade max disciplinas 10\n");
+        }
      } while (cronograma->quantdisciplinas > 10 || cronograma->quantdisciplinas < 1); // Garante que a quantidade esteja entre 1 e 10
     int materia_ja_cadastrada = 0; // incia o contador de materia cadastrada
     for(int i = 0; i < cronograma->quantdisciplinas; i++){
@@ -284,8 +288,8 @@ void gerarCronograma(Cronograma *cronograma){
     Sleep(500);
     printf("Resolução de questões: %d questões por diciplina\n", cronograma->questoesPorEstudo / cronograma->quantdisciplinas);// Exibe a quantidade de questões que o aluno deseja resolver
     Sleep(1000);
-}
 
+}
  
 void cadastrarQuestao(Questao * questao){
     system("cls");
@@ -475,7 +479,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         for (int j = 0; j < 5; j++) {
             printf("%s\n", questoes[i].alternativas[j]);
         }
-
+    
     // Solicita a resposta do usuário
         int repostaInt = atoi(questoes[i].resposta); // Transforma a reposta cadastrada em int para melhor fazer a comparação e tratamento de erros
         do {
@@ -719,7 +723,34 @@ void menuConsulta(){
             }
     }while(opcao1 != 0);   
 }
-   
+
+// Função do temporizador que será executada em uma thread separada
+DWORD WINAPI temporizador(LPVOID lpParam) {
+    Cronograma *cronograma = (Cronograma *)lpParam;
+    int tempo = cronograma->tempoDisponivel / cronograma->quantdisciplinas;
+
+    for(int i = 0; i < cronograma->quantdisciplinas; i++){
+    while (tempo > 0) {
+
+        // Espera 1 minuto (60000 ms)
+        Sleep(60000);
+        tempo--;
+    }
+    
+    // Alerta de fim de tempo
+    //printf("00:00\n");
+    printf("O tempo de estudo para esta disciplina acabou!\n");
+    // Som de alarme
+    for (int i = 0; i < 2; i++) {
+        Beep(880, 1000); // Beep de alarme
+        Sleep(500); // Espera meio segundo entre os beeps
+    }
+    }
+    return 0;
+
+}
+  
+    
 int main(){
     FILE *materias;
     setlocale(LC_ALL, "Portuguese_Brazil"); // Configura a localização para portugues do Brasil
@@ -729,11 +760,22 @@ int main(){
     questoes->quantQuest = 0; // Inicializa a quantidade de questões cadastradas para 0
     Monitor monitor;  // Declara uma varíavel do tipo Monitor
     monitor.quant = 0; // Inicializa a quantidade de monitores cadastrados para 0
+    Cronograma temp;
+    int cont = 0;
+
     
     int numQuestoes = 0;  // Varíavel para armazenar o número de questões cadastradas
     int opcao; // Varíavel para armazenar a opção escolhida pelo usúrio
     int acertos; // Varíavel para armazenar o número de acertos nas questões
+   
     do{
+        // Cria a thread do temporizador
+        system("cls");
+        HANDLE hThread = CreateThread(NULL, 0, temporizador, &cronograma, 0, NULL);
+        if (hThread == NULL) {
+            printf("Erro ao criar thread do temporizador.\n");
+            return 1;
+            }
         system("cls");
         mostrarlinha();
         printf("\t    Menu\n\n");
@@ -758,6 +800,7 @@ int main(){
             system("cls");
             gerarCronograma(&cronograma);
             system("pause");
+            cont ++;
             break;
             case 3:
             system("cls");
@@ -802,6 +845,10 @@ int main(){
             default:
                 printf("Operação invalida, tente novamente.\n");
         }
+
+       // Fecha o handle da thread
+        CloseHandle(hThread);
     }while (opcao != 0); // Continua no menu até que o usúrio escolha a opção 0 para sair
+   
 return 0; // Retorna 0 indicando que o programa terminou com sucesso
 }   
