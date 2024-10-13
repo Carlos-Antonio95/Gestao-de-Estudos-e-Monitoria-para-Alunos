@@ -18,7 +18,7 @@ typedef struct {
 typedef struct {
     char disciplinas[10][80];
     int quantdisciplinas;
-    int tempoDisponivel;
+    int tempoDisponivel ;
     int questoesPorEstudo;
 } Cronograma;
 
@@ -161,6 +161,8 @@ void cadastrarAluno(Aluno *aluno){
 void gerarCronograma(Cronograma *cronograma){
     Questao questoes;
     Cronograma temp;
+    cronograma->quantdisciplinas = 0;
+    cronograma->tempoDisponivel = 0;
     int opcao;
     FILE *lista;
     char buffer[250];
@@ -730,16 +732,17 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
     int tempo = cronograma->tempoDisponivel / cronograma->quantdisciplinas;
 
     for(int i = 0; i < cronograma->quantdisciplinas; i++){
-    while (tempo > 0) {
+        tempo = cronograma->tempoDisponivel / cronograma->quantdisciplinas; 
+        while (tempo > 0) {
 
-        // Espera 1 minuto (60000 ms)
-        Sleep(60000);
-        tempo--;
-    }
+            // Espera 1 minuto (60000 ms)
+            Sleep(60000);
+            tempo--;
+        }
     
     // Alerta de fim de tempo
     //printf("00:00\n");
-    printf("O tempo de estudo para esta disciplina acabou!\n");
+    printf("\nO tempo de estudo para esta disciplina acabou! OBS: PODE CONTINUAR A EXECUÇÃO DO PRGRAMA CASO QUERIA\n");
     // Som de alarme
     for (int i = 0; i < 2; i++) {
         Beep(880, 1000); // Beep de alarme
@@ -747,7 +750,7 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
     }
     }
     return 0;
-
+    
 }
   
     
