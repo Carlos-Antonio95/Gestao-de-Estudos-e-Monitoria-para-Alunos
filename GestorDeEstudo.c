@@ -736,7 +736,7 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
         while (tempo > 0) {
 
             // Espera 1 minuto (60000 ms)
-            Sleep(60000);
+            Sleep(30000);
             tempo--;
         }
     
@@ -756,7 +756,7 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
     
 int main(){
     FILE *materias;
-    setlocale(LC_ALL, "Portuguese_Brazil"); // Configura a localização para portugues do Brasil
+    setlocale(LC_ALL, "Portuguese_Brazil"); // Configura a localiza2ção para portugues do Brasil
     Aluno aluno; // Declara uma varíavel do tipo Aluno
     Cronograma cronograma; //Declara uma varíavel do tipo Cronograma
     Questao questoes[50]; // Declara um array de Questao com capacidade para 10 questões
