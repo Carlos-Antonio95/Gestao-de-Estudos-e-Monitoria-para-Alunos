@@ -736,13 +736,13 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
         while (tempo > 0) {
 
             // Espera 1 minuto (60000 ms)
-            Sleep(30000);
+            Sleep(60000);
             tempo--;
         }
     
     // Alerta de fim de tempo
     //printf("00:00\n");
-    printf("\nO tempo de estudo para esta disciplina acabou! OBS: PODE CONTINUAR A EXECUÇÃO DO PRGRAMA CASO QUERIA\n");
+   // printf("\nO tempo de estudo para esta disciplina acabou! OBS: \n");
     // Som de alarme
     for (int i = 0; i < 2; i++) {
         Beep(880, 1000); // Beep de alarme
