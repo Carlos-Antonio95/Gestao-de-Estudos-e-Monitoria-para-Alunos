@@ -469,6 +469,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     getchar();
     questoes->totQuest = numQuestoes;// recebe o número de questão que o usuário deseja responder, para mostrar no fim do questionario
     // exiba as questões
+    system("cls");
     for (int i = 0; i < numQuestoes; i++) {
         Sleep(500); // Pausa para melhorar a experiência do usuário
 
