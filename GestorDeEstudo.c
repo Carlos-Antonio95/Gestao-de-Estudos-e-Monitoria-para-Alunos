@@ -160,7 +160,6 @@ void cadastrarAluno(Aluno *aluno){
 
 void gerarCronograma(Cronograma *cronograma){
     Questao questoes;
-    Cronograma temp;
     cronograma->quantdisciplinas = 0;
     cronograma->tempoDisponivel = 0;
     int opcao;
@@ -289,6 +288,8 @@ void gerarCronograma(Cronograma *cronograma){
     }
     Sleep(500);
     printf("Resolução de questões: %d questões por diciplina\n", cronograma->questoesPorEstudo / cronograma->quantdisciplinas);// Exibe a quantidade de questões que o aluno deseja resolver
+    Sleep(1000);
+    printf(" OBS: SERA EMITIDO 2 BEEP COMO ALERTA ASSIM QUE ATINGIDO OS TEMPOS DE ESTUDO DE CADA DISCIPLINA\n");
     Sleep(1000);
 
 }
@@ -740,9 +741,6 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
             tempo--;
         }
     
-    // Alerta de fim de tempo
-    //printf("00:00\n");
-   // printf("\nO tempo de estudo para esta disciplina acabou! OBS: \n");
     // Som de alarme
     for (int i = 0; i < 2; i++) {
         Beep(880, 1000); // Beep de alarme
@@ -763,10 +761,7 @@ int main(){
     questoes->quantQuest = 0; // Inicializa a quantidade de questões cadastradas para 0
     Monitor monitor;  // Declara uma varíavel do tipo Monitor
     monitor.quant = 0; // Inicializa a quantidade de monitores cadastrados para 0
-    Cronograma temp;
     int cont = 0;
-
-    
     int numQuestoes = 0;  // Varíavel para armazenar o número de questões cadastradas
     int opcao; // Varíavel para armazenar a opção escolhida pelo usúrio
     int acertos; // Varíavel para armazenar o número de acertos nas questões
