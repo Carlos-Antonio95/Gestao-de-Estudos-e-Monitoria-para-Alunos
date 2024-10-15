@@ -475,7 +475,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         // Exibe a matéria e o enunciado da questão
         printf("%s\n", questoes[i].materia);
         Sleep(500);
-        printf("Questão %d: %s\n", i + 1, questoes[i].enunciado);
+        printf("Questão %d:\n%s\n", i + 1, questoes[i].enunciado);
         Sleep(500);
         
         // Exibe as alternativas
@@ -492,10 +492,13 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         } while (resposta < 1 || resposta > 5 ); // Continua pedindo até ser um número vailido entre 1 e 5
         if (repostaInt == resposta) { // Verifica se a resposta está correta
             (*acertos)++;
+            printf("Questão %d correta.\n",i+1);
         }
         
-    }
+    }  
+        
 }
+          
 
 void cadastrarMonitor(Monitor *monitor){
     int contstring;
