@@ -4,9 +4,3 @@ Curso: ads
 Periodo: 1
 Quantidade de Disciplinas: 1
 Disciplina 1: a
-Nome: Carlos
-Matricula: 2024290636
-Curso: 1
-Periodo: 1
-Quantidade de Disciplinas: 1
-Disciplina 1: Redes
