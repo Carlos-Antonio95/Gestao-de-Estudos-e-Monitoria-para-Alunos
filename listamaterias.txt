@@ -1,10 +1,6 @@
 Logica
-Metodologia
-Metodologia1
-Metodologia2
-Metodologia3
-Metodologia4
-Metodologia5
+Metodologia de Software
 Redes
 Ingles
 Banco de Dados
+Intro a comput
