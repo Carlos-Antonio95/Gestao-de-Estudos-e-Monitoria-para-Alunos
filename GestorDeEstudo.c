@@ -409,7 +409,7 @@ void cadastrarQuestao(Questao * questao){
 void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     int resposta; // Variável para armazenar a resposta do usuário
     char rquestao[80];// Variável para armazenar a matéria selecionada pelo usuário
-    char buffer[1000]; // Buffer para leitura de linhas do arquivo
+    char buffer[3500]; // Buffer para leitura de linhas do arquivo
 
     FILE *lista;// Ponteiro para o arquivo da lista de matérias
     *acertos = 0; // Inicializa o contador de acertos
@@ -468,7 +468,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         // Exibe a matéria e o enunciado da questão
         printf("%s\n", questoes[i].materia);
         Sleep(500);
-        printf("Questão %d: %s\n", i + 1, questoes[i].enunciado);
+        printf("Questão %d:\n%s\n", i + 1, questoes[i].enunciado);
         Sleep(500);
         
         // Exibe as alternativas
