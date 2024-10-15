@@ -492,10 +492,13 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         } while (resposta < 1 || resposta > 5 ); // Continua pedindo até ser um número vailido entre 1 e 5
         if (repostaInt == resposta) { // Verifica se a resposta está correta
             (*acertos)++;
+            printf("Questão %d correta.\n",i+1);
         }
         
-    }
+    }  
+        
 }
+          
 
 void cadastrarMonitor(Monitor *monitor){
     int contstring;
