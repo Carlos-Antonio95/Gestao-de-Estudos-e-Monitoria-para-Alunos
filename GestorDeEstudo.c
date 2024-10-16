@@ -421,7 +421,7 @@ void cadastrarQuestao(Questao * questao){
 void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     int resposta; // Variável para armazenar a resposta do usuário
     char rquestao[80];// Variável para armazenar a matéria selecionada pelo usuário
-    char buffer[3500]; // Buffer para leitura de linhas do arquivo
+    char buffer[7500]; // Buffer para leitura de linhas do arquivo
 
     FILE *lista;// Ponteiro para o arquivo da lista de matérias
     *acertos = 0; // Inicializa o contador de acertos
@@ -468,10 +468,14 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         (numQuestoes)++; // Incrementa o número de questões lidas
     }
     fclose(file); // Fecha o arquivo de questões
-
-    printf("Quantas questões deseja responder de %s: ",rquestao);//solicita ao usuário a quantidade de questões que deseja responder 
-    scanf("%i",&numQuestoes);
-    getchar();
+    do{
+        printf("Quantas questões deseja responder de %s: ",rquestao);//solicita ao usuário a quantidade de questões que deseja responder 
+        scanf("%i",&numQuestoes);
+        getchar();
+        if(numQuestoes <= 0 || numQuestoes > 30){
+            printf("Informe valor de 1 até 30");
+        }
+    }while(numQuestoes <= 0 || numQuestoes > 30 );
     questoes->totQuest = numQuestoes;// recebe o número de questão que o usuário deseja responder, para mostrar no fim do questionario
     // exiba as questões
     system("cls");
@@ -495,10 +499,15 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
             printf("Número da questão correta(1 a 5): ");
             scanf("%i",&resposta); // Lê a resposta
             printf("\n");
+            if(resposta < 1 || resposta > 5 ){
+                printf("Valor invalido!\n");
+            }
         } while (resposta < 1 || resposta > 5 ); // Continua pedindo até ser um número vailido entre 1 e 5
         if (repostaInt == resposta) { // Verifica se a resposta está correta
             (*acertos)++;
-            printf("Questão %d correta.\n",i+1);
+            printf("Questão %d correta.\n\n",i+1);
+        }else{
+            printf("Questão %d errada.\n\n",i+1);
         }
         
     }  
@@ -633,7 +642,7 @@ void consultarQuestoes() {
     FILE *lista;  // Ponteiro para o arquivo que armazena a lista de disciplinas
     FILE *file; // Ponteiro para o arquivo que armazena as questões de uma disciplina
     char materia[80];   // Varíavel para armazenar o nome da disciplina para consulta
-    char buffer[255];  // Buffer para ler linhas dos arquivos
+    char buffer[550];  // Buffer para ler linhas dos arquivos
     printf("Consultar Questões:\n");
     Sleep(500);
     
@@ -757,8 +766,8 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
                 Sleep(500); // Espera meio segundo entre os beeps
             }
         }
-
     }
+    
     return 0;
     
 }
@@ -769,7 +778,7 @@ int main(){
     setlocale(LC_ALL, "Portuguese_Brazil"); // Configura a localiza2ção para portugues do Brasil
     Aluno aluno; // Declara uma varíavel do tipo Aluno
     Cronograma cronograma; //Declara uma varíavel do tipo Cronograma
-    Questao questoes[50]; // Declara um array de Questao com capacidade para 10 questões
+    Questao questoes[50]; // Declara um array de Questao com capacidade para 50 questões
     questoes->quantQuest = 0; // Inicializa a quantidade de questões cadastradas para 0
     Monitor monitor;  // Declara uma varíavel do tipo Monitor
     monitor.quant = 0; // Inicializa a quantidade de monitores cadastrados para 0
