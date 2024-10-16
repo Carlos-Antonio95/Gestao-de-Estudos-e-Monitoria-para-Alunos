@@ -767,7 +767,7 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
             }
         }
     }
-    
+    cronograma->contador = 0;
     return 0;
     
 }
