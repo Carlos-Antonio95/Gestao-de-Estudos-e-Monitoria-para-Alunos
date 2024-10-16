@@ -20,6 +20,7 @@ typedef struct {
     int quantdisciplinas;
     int tempoDisponivel ;
     int questoesPorEstudo;
+    int contador;
 } Cronograma;
 
 // Estrutura para armazenar informações de uma questão
@@ -160,8 +161,8 @@ void cadastrarAluno(Aluno *aluno){
 
 void gerarCronograma(Cronograma *cronograma){
     Questao questoes;
-    cronograma->quantdisciplinas = 0;
-    cronograma->tempoDisponivel = 0;
+    memset(&cronograma->quantdisciplinas, 0, sizeof(Cronograma));//garante que não tenha lixo de memória.
+    memset(&cronograma->tempoDisponivel, 0, sizeof(Cronograma));//garante que não tenha lixo de memória.
     int opcao;
     FILE *lista;
     char buffer[250];
@@ -261,7 +262,7 @@ void gerarCronograma(Cronograma *cronograma){
     do{
         printf("Tempo disponivel para estudo (em minutos): ");
         scanf("%d", &cronograma -> tempoDisponivel);// Lê a entrada do usuário
-        getchar(); // Limpa o buffer de entrada
+        fflush(stdin); // Limpa o buffer de entrada
         if(cronograma->tempoDisponivel <= 0 || cronograma->tempoDisponivel > 1440){
            printf("Prezamos pela sua saúde! Tempo máximo de estudo 1440 minutos(24hrs)\n"); 
         }
@@ -270,9 +271,12 @@ void gerarCronograma(Cronograma *cronograma){
     do{
         printf("Quantidade de questões que deseja responder ao término do estudo: ");
         scanf("%d", &cronograma -> questoesPorEstudo);// Lê a entrada do usuário
-        getchar();
+        fflush(stdin);
         if(cronograma->questoesPorEstudo <=0 || cronograma->questoesPorEstudo > 1000){
             printf("Mínimo de questoes 1 e máximo de questões 1000.\n");
+            cronograma->contador = 0;
+        }else{
+            cronograma->contador = 1;
         }
     }while(cronograma->questoesPorEstudo <=0 || cronograma->questoesPorEstudo > 1000); // Garante que a quantidade esteja entre 1 e 1.00
     Sleep(500); // Pausa a execução por 500 milissegundos
@@ -284,13 +288,14 @@ void gerarCronograma(Cronograma *cronograma){
     printf("Cronograma de Estudo para o aluno:\n");
     for (int i = 0; i < cronograma->quantdisciplinas; i++){  // Loop para mostrar o tempo de estudo para cada disciplina
         Sleep(500);
-        printf("Disciplina: %s = %d minutos de estudo\n", cronograma->disciplinas[i], tempoPorDisciplina);
+        printf("Disciplina: %s = %d minutos de estudo\n", cronograma->disciplinas[i], tempoPorDisciplina); 
     }
     Sleep(500);
     printf("Resolução de questões: %d questões por diciplina\n", cronograma->questoesPorEstudo / cronograma->quantdisciplinas);// Exibe a quantidade de questões que o aluno deseja resolver
     Sleep(1000);
     printf(" OBS: SERA EMITIDO 2 BEEP COMO ALERTA ASSIM QUE ATINGIDO OS TEMPOS DE ESTUDO DE CADA DISCIPLINA\n");
     Sleep(1000);
+    
 
 }
  
@@ -416,7 +421,7 @@ void cadastrarQuestao(Questao * questao){
 void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
     int resposta; // Variável para armazenar a resposta do usuário
     char rquestao[80];// Variável para armazenar a matéria selecionada pelo usuário
-    char buffer[1000]; // Buffer para leitura de linhas do arquivo
+    char buffer[3500]; // Buffer para leitura de linhas do arquivo
 
     FILE *lista;// Ponteiro para o arquivo da lista de matérias
     *acertos = 0; // Inicializa o contador de acertos
@@ -703,7 +708,7 @@ void menuConsulta(){
             printf("1 -> Consultar Aluno\n");
             printf("2 -> Consultar Questões\n");
             printf("3 -> Consultar Monitor\n");
-            printf("0 -> Voltar para tela anterior");
+            printf("0 -> Voltar para menu anterior");
             mostrarlinha(); // Função para mostrar uma linha no console
             printf("Ecolha uma opção: ");
             scanf("%i",&opcao1);  // Ler a opção escolhida pelo usúrio
@@ -734,22 +739,25 @@ void menuConsulta(){
 // Função do temporizador que será executada em uma thread separada
 DWORD WINAPI temporizador(LPVOID lpParam) {
     Cronograma *cronograma = (Cronograma *)lpParam;
-    int tempo = cronograma->tempoDisponivel / cronograma->quantdisciplinas;
-
-    for(int i = 0; i < cronograma->quantdisciplinas; i++){
-        tempo = cronograma->tempoDisponivel / cronograma->quantdisciplinas; 
-        while (tempo > 0) {
-
-            // Espera 1 minuto (60000 ms)
-            Sleep(60000);
-            tempo--;
-        }
+    int tempo = cronograma->tempoDisponivel / cronograma->quantdisciplinas; 
     
-    // Som de alarme
-    for (int i = 0; i < 2; i++) {
-        Beep(880, 1000); // Beep de alarme
-        Sleep(500); // Espera meio segundo entre os beeps
-    }
+    if(cronograma->contador == 1){
+        for(int i = 0; i < cronograma->quantdisciplinas; i++){
+            tempo = cronograma->tempoDisponivel / cronograma->quantdisciplinas; 
+            while (tempo > 0) {
+
+                // Espera 1 minuto (60000 ms)
+                Sleep(60000);
+                tempo--;
+            }
+        
+            // Som de alarme
+            for (int i = 0; i < 2; i++) {
+                Beep(880, 1000); // Beep de alarme
+                Sleep(500); // Espera meio segundo entre os beeps
+            }
+        }
+
     }
     return 0;
     
@@ -806,9 +814,9 @@ int main(){
             break;
             case 3:
             system("cls");
-            if (numQuestoes < 20){ // Verifica se o número de questões é menor que 10
+            if (numQuestoes < 20){ // Verifica se o número de questões é menor que 20
                 cadastrarQuestao(&questoes[numQuestoes]); // Chama a função para cadastrar uma nova questão
-                numQuestoes++;  // Incrementa o nï¿½mero de questões cadastradas
+                numQuestoes++;  // Incrementa o número de questões cadastradas
                 questoes->quantQuest++; // Incrementa a quantidade de questões no array de questões
             }
             else{
