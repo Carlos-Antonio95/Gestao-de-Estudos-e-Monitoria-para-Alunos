@@ -191,7 +191,6 @@ void gerarCronograma(Cronograma *cronograma){
             break;
         }
     }else{
-        printf("%d",cronograma->contador);
         printf("Lista de todas as Disciplinas disponíveis para estudo:\n");
         lista = fopen("listamaterias.txt","r"); // Acessa e ler o arquivo com a lista de todas as disciplinas
         while (fgets(buffer, sizeof(buffer), lista)) {
