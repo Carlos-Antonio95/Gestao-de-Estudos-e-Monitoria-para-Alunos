@@ -1,6 +1,6 @@
-Logica
-Metodologia de Software
-Redes
-Ingles
-Banco de Dados
-Intro a comput
+LOGICA
+METODOLOGIA DE SOFTWARE
+REDES
+INGLES
+BANCO DE DADOS
+INTRO A COMPUT
