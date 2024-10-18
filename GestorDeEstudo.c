@@ -761,8 +761,9 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
                 // Espera 1 minuto (60000 ms)
                 Sleep(60000);
                 tempo--;
+                printf("%i",tempo);
             }
-        
+        printf("%i",tempo);
             // Som de alarme
             for (int i = 0; i < 2; i++) {
                 Beep(880, 1000); // Beep de alarme
@@ -770,6 +771,7 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
             }
         }
     }
+    printf("%i",tempo);
     cronograma->contador = 0;
     return 0;
     
