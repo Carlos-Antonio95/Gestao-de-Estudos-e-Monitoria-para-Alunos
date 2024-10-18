@@ -168,7 +168,6 @@ void gerarCronograma(Cronograma *cronograma){
     char buffer[250];
      FILE *listatxt = fopen("listamaterias.txt", "r"); // Abre o arquivo para leitura
     if (listatxt == NULL) { // Se o arquivo não existir ( NULL) ele ira entrar na condição e criar
-       // listatxt = fopen("listamaterias.txt", "a"); //Abre o arquivo para escrita caso não exista ele cria
         printf("Não tem disciplinas cadastradas\n");
         printf("Deseja cadastrar uma disciplina ? 1 = SIM / 2 = NÃO: ");
         scanf("%d",&opcao);
@@ -214,6 +213,7 @@ void gerarCronograma(Cronograma *cronograma){
         do{
             printf("Disciplina %d: ", i + 1); 
             fgets(cronograma -> disciplinas[i], 80, stdin); // Lê a entrada do nome da disciplina
+            strupr(cronograma -> disciplinas[i]);
             cronograma -> disciplinas[i] [strcspn(cronograma -> disciplinas[i], "\n")] = '\0'; // Remove a nova linha do final da string
 
      FILE *listaTxt = fopen("listamaterias.txt", "r"); //abre o arquivo para leitura
@@ -411,6 +411,7 @@ void cadastrarQuestao(Questao * questao){
 
     // Se a matéria não foi encontrada, adiciona ao arquivo
     if (materia_ja_cadastrada == 0) { // se o contador de materias for = 0 
+        strupr(questao->materia); // imprime no banco de dados o nome da materia maiúscula
         fprintf(listaMateriasTxt, "%s\n", questao->materia); // imprime a materia no arquivo
     }
 
@@ -436,6 +437,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
 
     printf("Qual matéria você deseja resolver as questões?\n");
     fgets(rquestao, 80, stdin);
+    strupr(rquestao);// deixa o texto maiúsclo
     rquestao[strcspn(rquestao, "\n")] = '\0'; // Remove nova linha
     
     FILE *file = fopen(rquestao, "r"); // Abre o arquivo da matéria selecionada
@@ -473,7 +475,7 @@ void resolverQuestoes(Questao *questoes, int numQuestoes, int *acertos) {
         scanf("%i",&numQuestoes);
         getchar();
         if(numQuestoes <= 0 || numQuestoes > 30){
-            printf("Informe valor de 1 até 30");
+            printf("Informe valor de 1 até 30\n");
         }
     }while(numQuestoes <= 0 || numQuestoes > 30 );
     questoes->totQuest = numQuestoes;// recebe o número de questão que o usuário deseja responder, para mostrar no fim do questionario
@@ -657,6 +659,7 @@ void consultarQuestoes() {
         printf("Digite a disciplina  para consultar (ou '0' para voltar ao menu anterior): \n"); // Solicita ao usúrio o nome da disciplina para consultar questões
         printf(">>> ");        
         fgets(materia, 80, stdin);
+        strupr(materia);
         system("cls");
         materia[strcspn(materia, "\n")] = '\0';
         if (strcmp(materia, "0") == 0){  // Se o usúrio digitar "0", sai do loop
@@ -758,8 +761,9 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
                 // Espera 1 minuto (60000 ms)
                 Sleep(60000);
                 tempo--;
+                printf("%i",tempo);
             }
-        
+        printf("%i",tempo);
             // Som de alarme
             for (int i = 0; i < 2; i++) {
                 Beep(880, 1000); // Beep de alarme
@@ -767,6 +771,7 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
             }
         }
     }
+    printf("%i",tempo);
     cronograma->contador = 0;
     return 0;
     
