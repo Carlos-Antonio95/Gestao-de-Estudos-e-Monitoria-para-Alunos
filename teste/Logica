@@ -1,0 +1,208 @@
+Matéria: Lógica de Programação
+Enunciado da questão: O que é um algoritmo?
+Alternativa 1: Uma sequência de instruções
+Alternativa 2: Um tipo de dado
+Alternativa 3: Um programa de computador
+Alternativa 4: Um sistema operacional
+Alternativa 5: Uma linguagem de programação
+1
+Matéria: Lógica de Programação
+Enunciado da questão: Qual é a finalidade de um loop?
+Alternativa 1: Executar uma instrução apenas uma vez
+Alternativa 2: Repetir um conjunto de instruções
+Alternativa 3: Declarar variáveis
+Alternativa 4: Criar funções
+Alternativa 5: Armazenar dados
+2
+Matéria: Lógica de Programação
+Enunciado da questão: O que significa "debugging"?
+Alternativa 1: Escrever código
+Alternativa 2: Corrigir erros
+Alternativa 3: Testar software
+Alternativa 4: Compilar código
+Alternativa 5: Criar algoritmos
+2
+Matéria: Lógica de Programação
+Enunciado da questão: O que é uma estrutura de controle?
+Alternativa 1: Um tipo de dado
+Alternativa 2: Um comando que altera o fluxo do programa
+Alternativa 3: Uma função matemática
+Alternativa 4: Um arquivo de programa
+Alternativa 5: Uma biblioteca de código
+2
+Matéria: Lógica de Programação
+Enunciado da questão: O que é um operador lógico?
+Alternativa 1: Um símbolo para operações aritméticas
+Alternativa 2: Um comando para controle de fluxo
+Alternativa 3: Um símbolo que compara valores
+Alternativa 4: Um símbolo que combina expressões booleanas
+Alternativa 5: Uma função matemática
+4
+Matéria: Lógica de Programação
+Enunciado da questão: Qual é a saída de "print(3 * 2)”?
+Alternativa 1: 6
+Alternativa 2: 5
+Alternativa 3: 3
+Alternativa 4: 2
+Alternativa 5: 0
+1
+Matéria: Lógica de Programação
+Enunciado da questão: O que é uma função?
+Alternativa 1: Um bloco de código que executa uma tarefa específica
+Alternativa 2: Um tipo de dado
+Alternativa 3: Um comando de controle
+Alternativa 4: Uma variável global
+Alternativa 5: Um loop
+1
+Matéria: Lógica de Programação
+Enunciado da questão: O que é um array?
+Alternativa 1: Uma variável única
+Alternativa 2: Uma coleção de dados do mesmo tipo
+Alternativa 3: Uma estrutura de controle
+Alternativa 4: Um tipo de função
+Alternativa 5: Um operador lógico
+2
+Matéria: Lógica de Programação
+Enunciado da questão: O que significa "compilar" um programa?
+Alternativa 1: Escrever o código
+Alternativa 2: Transformar código-fonte em código executável
+Alternativa 3: Corrigir erros
+Alternativa 4: Executar um programa
+Alternativa 5: Testar a funcionalidade
+2
+Matéria: Lógica de Programação
+Enunciado da questão:  Qual o resultado da operação 5 % 2?
+Alternativa 1: 2
+Alternativa 2: 3
+Alternativa 3: 0
+Alternativa 4: 1
+Alternativa 5: 5
+4
+Matéria: Lógica de Programação
+Enunciado da questão:  Em qual estrutura de dados podemos adicionar elementos no início e removê-los no final?
+Alternativa 1: Lista
+Alternativa 2: Fila
+Alternativa 3: Pilha
+Alternativa 4: Array
+Alternativa 5: Árvore
+2
+Matéria: Lógica de Programação
+Enunciado da questão: Qual a função principal de uma variável em um programa?
+Alternativa 1: Armazenar informações temporárias
+Alternativa 2: Executar cálculos
+Alternativa 3: Controlar o fluxo do programa
+Alternativa 4: Definir as saídas do sistema
+Alternativa 5: Organizar o código em módulos
+1
+Matéria: Lógica de Programação
+Enunciado da questão: O que significa o operador == em lógica de programação?
+Alternativa 1: Atribuição de valor
+Alternativa 2: Comparação de diferença
+Alternativa 3: Multiplicação
+Alternativa 4: Concatenação de strings
+Alternativa 5: Comparação de igualdade
+5
+Matéria: Lógica de Programação
+Enunciado da questão: Qual dos seguintes é um exemplo de uma linguagem de programação orientada a objetos?
+Alternativa 1: HTML
+Alternativa 2: CSS
+Alternativa 3: Python
+Alternativa 4: SQL
+Alternativa 5: JSON
+3
+Matéria: Lógica de Programação
+Enunciado da questão: O que o código if (x > 10) faz?
+Alternativa 1: Executa o bloco de código se x for menor que 10
+Alternativa 2: Executa o bloco de código se x for igual a 10
+Alternativa 3: Executa o bloco de código se x for negativo
+Alternativa 4: Executa o bloco de código se x for maior que 10
+Alternativa 5: Não executa nenhum bloco de código
+4
+Matéria: Lógica de Programação
+Enunciado da questão: O que significa "compilar" um código em uma linguagem compilada?
+Alternativa 1: Verificar se o código está indentado corretamente
+Alternativa 2: Converter o código fonte em linguagem de máquina
+Alternativa 3: Verificar erros de sintaxe durante a execução
+Alternativa 4: Conectar diferentes bibliotecas ao código
+Alternativa 5: Editar o código em tempo de execução
+2
+Matéria: Lógica de Programação
+Enunciado da questão: O que o código x = x + 1 faz?
+Alternativa 1: Atribui o valor de x para 1
+Alternativa 2: Soma 1 ao valor de x e o armazena de volta em x
+Alternativa 3: Subtrai 1 de x
+Alternativa 4: Atribui 0 a x
+Alternativa 5: Compara x com 1
+2
+Matéria: Lógica de Programação
+Enunciado da questão: Qual é o resultado da operação booleana True AND False?
+Alternativa 1: True
+Alternativa 2: 0
+Alternativa 3: 1
+Alternativa 4: Nenhuma das anteriores
+Alternativa 5: False
+5
+Matéria: Lógica de Programação
+Enunciado da questão: 11. Qual o valor da variável x após a execução do código: x = 3; x += 2?
+Alternativa 1: 2
+Alternativa 2: 3
+Alternativa 3: 5
+Alternativa 4: 7
+Alternativa 5: 6
+3
+Matéria: Lógica de Programação
+Enunciado da questão: O que significa a palavra-chave return em uma função?
+Alternativa 1: Declarar uma variável
+Alternativa 2: Parar a execução do programa
+Alternativa 3: Imprimir uma mensagem
+Alternativa 4: Comparar dois valores
+Alternativa 5: Retornar um valor de uma função
+5
+Matéria: Lógica de Programação
+Enunciado da questão: Qual o resultado de 2 ** 3 em Python?
+Alternativa 1: 6
+Alternativa 2: 8
+Alternativa 3: 9
+Alternativa 4: 12
+Alternativa 5: 4
+2
+Matéria: Lógica de Programação
+Enunciado da questão: Qual é o tipo de dado que pode armazenar valores True ou False?
+Alternativa 1: String
+Alternativa 2: Inteiro
+Alternativa 3: Float
+Alternativa 4: Booleano
+Alternativa 5: Caractere
+4
+Matéria: Lógica de Programação
+Enunciado da questão: Em um loop while, o que acontece se a condição nunca for False?
+Alternativa 1: O loop nunca inicia
+Alternativa 2: O loop termina imediatamente
+Alternativa 3: O loop entra em um ciclo infinito
+Alternativa 4: O programa fecha
+Alternativa 5: O loop executa apenas uma vez
+3
+Matéria: Lógica de Programação
+Enunciado da questão: O que o operador != faz em um programa?
+Alternativa 1: Atribui valor
+Alternativa 2: Verifica se dois valores são iguais
+Alternativa 3: Faz uma operação de módulo
+Alternativa 4: Verifica se dois valores são diferentes
+Alternativa 5: Compara endereços de memória
+4
+Matéria: Lógica de Programação
+Enunciado da questão: Qual das seguintes estruturas de dados é baseada no princípio LIFO (Last In, First Out)?
+Alternativa 1: Fila
+Alternativa 2: Pilha
+Alternativa 3: Lista
+Alternativa 4: Árvore
+Alternativa 5: Matriz
+2
+Matéria: Lógica de Programação
+Enunciado da questão: Qual é a função da diretiva #include em C?
+Alternativa 1: Declara variáveis
+Alternativa 2: Define uma função
+Alternativa 3: Inclui bibliotecas externas
+Alternativa 4: Compila o código
+Alternativa 5: Aloca memória
+3

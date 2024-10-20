@@ -1,0 +1,385 @@
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que é um banco de dados relacional? 
+Alternativa 1: Um banco de dados que organiza dados em tabelas inter-relacionadas. 
+Alternativa 2: Um banco de dados que armazena dados não estruturados. 
+Alternativa 3: Um banco de dados que usa XML para armazenamento. 
+Alternativa 4: Um banco de dados baseado em hierarquias. 
+Alternativa 5: Um banco de dados que não permite relacionamentos. 
+1
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que é SQL? 
+Alternativa 1: Uma linguagem usada para gerenciar bancos de dados relacionais. 
+Alternativa 2: Um tipo de sistema operacional. 
+Alternativa 3: Um modelo de desenvolvimento de software. 
+Alternativa 4: Um sistema de arquivos. 
+Alternativa 5: Um tipo de banco de dados. 
+1
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que é uma tabela em um banco de dados? 
+Alternativa 1: Uma coleção de registros armazenados em linhas e colunas. 
+Alternativa 2: Um tipo de dado. 
+Alternativa 3: Um conjunto de regras. 
+Alternativa 4: Uma linguagem de programação. 
+Alternativa 5: Um procedimento de segurança. 
+1
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que é uma chave primária em um banco de dados? 
+Alternativa 1: Um campo que permite valores duplicados. 
+Alternativa 2: Um campo que identifica exclusivamente cada registro em uma tabela. 
+Alternativa 3: Um campo que não pode ser nulo. 
+Alternativa 4: Um tipo de dado que pode ser alterado. 
+Alternativa 5: Um campo que contém dados de múltiplas tabelas. 
+2
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que é uma chave estrangeira? 
+Alternativa 1: Um campo que permite valores duplicados em uma tabela. 
+Alternativa 2: Um campo que estabelece um relacionamento entre duas tabelas. 
+Alternativa 3: Um tipo de dado que não pode ser alterado. 
+Alternativa 4: Um campo que não pode ser nulo. 
+Alternativa 5: Um índice de busca. 
+2
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que é uma consulta em SQL? 
+Alternativa 1: Um comando que altera a estrutura do banco de dados. 
+Alternativa 2: Um comando que seleciona dados do banco de dados. 
+Alternativa 3: Um tipo de erro. 
+Alternativa 4: Um tipo de dado. 
+Alternativa 5: Uma função que não retorna valores. 
+2
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que é um relacionamento em um banco de dados? 
+Alternativa 1: A conexão entre diferentes tabelas. 
+Alternativa 2: A estrutura de uma tabela. 
+Alternativa 3: Um tipo de dado. 
+Alternativa 4: Um comando SQL. 
+Alternativa 5: Um tipo de chave. 
+1
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que significa "normalização" em bancos de dados? 
+Alternativa 1: O processo de duplicar dados. 
+Alternativa 2: O processo de organizar dados para reduzir redundâncias. 
+Alternativa 3: O processo de destruir dados. 
+Alternativa 4: O processo de codificar dados. 
+Alternativa 5: O processo de exportar dados. 
+2
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que é um índice em um banco de dados? 
+Alternativa 1: Um campo que identifica exclusivamente cada registro. 
+Alternativa 2: Uma estrutura que melhora a velocidade de consulta. 
+Alternativa 3: Um tipo de relacionamento. 
+Alternativa 4: Um comando SQL. 
+Alternativa 5: Um tipo de dado. 
+2
+Matéria: Fundamentos e Projetos de Banco de Dados
+Enunciado da questão: O que é um sistema de gerenciamento de banco de dados (SGBD)? 
+Alternativa 1: Um software que gerencia e manipula bancos de dados. 
+Alternativa 2: Um tipo de linguagem de programação. 
+Alternativa 3: Um tipo de tabela. 
+Alternativa 4: Um comando SQL. 
+Alternativa 5: Um tipo de dado. 
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL é usado para selecionar dados de um banco de dados?
+Alternativa 1: INSERT
+Alternativa 2: UPDATE
+Alternativa 3: DELETE
+Alternativa 4: SELECT
+Alternativa 5: CREATE
+4
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL é usado para excluir um registro de uma tabela?
+Alternativa 1: DELETE
+Alternativa 2: INSERT
+Alternativa 3: SELECT
+Alternativa 4: UPDATE
+Alternativa 5: DROP
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual das seguintes opções é uma função agregada no SQL?
+Alternativa 1: SUM()
+Alternativa 2: LOWER()
+Alternativa 3: TRIM()
+Alternativa 4: CONCAT()
+Alternativa 5: REPLACE()
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual das opções abaixo é um tipo de junção (join) em SQL?
+Alternativa 1: REMOVE JOIN
+Alternativa 2: RIGHT LINK
+Alternativa 3: LEFT JOIN
+Alternativa 4: INNER ATTACH
+Alternativa 5: TOP JOIN
+3
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL cria uma nova tabela em um banco de dados?
+Alternativa 1:  CREATE TABLE
+Alternativa 2:  ADD TABLE
+Alternativa 3:  MAKE TABLE
+Alternativa 4:  INSERT TABLE
+Alternativa 5:  BUILD TABLE
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual dos seguintes é um tipo de restrição de chave em um banco de dados relacional?
+Alternativa 1: OPEN
+Alternativa 2: PRIVATE
+Alternativa 3: LIMITED
+Alternativa 4: GROUP
+Alternativa 5: UNIQUE
+5
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: O que significa a sigla SQL?
+Alternativa 1: Simple Query Language
+Alternativa 2: Standard Query List
+Alternativa 3: System Query Logic
+Alternativa 4: Structured Query Language
+Alternativa 5: Simple Quick Language
+4
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL é usado para modificar dados existentes em uma tabela?
+Alternativa 1: INSERT
+Alternativa 2: UPDATE
+Alternativa 3: ALTER
+Alternativa 4: MODIFY
+Alternativa 5: DELETE
+2
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual das seguintes opções representa um banco de dados relacional?
+
+Alternativa 1: MySQL
+Alternativa 2: MongoDB
+Alternativa 3: Cassandra
+Alternativa 4: Redis
+Alternativa 5: Neo4j
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual das seguintes opções é uma cláusula SQL usada para ordenar resultados?
+Alternativa 1: ARRANGE BY
+Alternativa 2: SORT OUT
+Alternativa 3: ORDER BY
+Alternativa 4: ORDER WITH
+Alternativa 5: SORT WITH
+3
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: O que faz a cláusula GROUP BY em SQL?
+Alternativa 1: Ordena registros.
+Alternativa 2: Agrupa registros que têm valores iguais em colunas especificadas.
+Alternativa 3: Limita o número de registros.
+Alternativa 4: Cria uma nova tabela.
+Alternativa 5: Deleta registros agrupados.
+2
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual palavra-chave SQL é usada para impedir valores duplicados em uma coluna ao realizar uma consulta?
+Alternativa 1: DISTINCT
+Alternativa 2: UNIQUE
+Alternativa 3: SINGLE
+Alternativa 4: ONLY
+Alternativa 5: EXCLUSIVE
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: O que é uma chave primária em um banco de dados?
+Alternativa 1: Um valor que nunca se repete em um banco de dados.
+Alternativa 2: Um campo que pode conter valores nulos.
+Alternativa 3: Um índice para otimizar consultas.
+Alternativa 4: Um identificador único para cada registro em uma tabela.
+Alternativa 5: Um campo usado para classificar registros.
+4
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL é usado para excluir uma tabela de um banco de dados?
+Alternativa 1: DELETE TABLE
+Alternativa 2: REMOVE TABLE
+Alternativa 3: DROP TABLE
+Alternativa 4: ERASE TABLE
+Alternativa 5: CLEAR TABLE
+3
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL é usado para adicionar uma nova coluna a uma tabela existente?
+Alternativa 1: MODIFY TABLE
+Alternativa 2: ALTER TABLE
+Alternativa 3: INSERT TABLE
+Alternativa 4: ADD TABLE
+Alternativa 5: CHANGE TABLE
+2
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: O que é uma chave estrangeira (foreign key)?
+Alternativa 1: Um campo que referencia a chave primária de outra tabela.
+Alternativa 2: Um campo exclusivo dentro de uma tabela.
+Alternativa 3: Um campo que armazena dados criptografados.
+Alternativa 4: Um campo que pode ser nulo.
+Alternativa 5: Um campo utilizado para criar índices.
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual das seguintes opções representa um banco de dados NoSQL?
+Alternativa 1: MySQL
+Alternativa 2: PostgreSQL
+Alternativa 3: Oracle
+Alternativa 4: MongoDB
+Alternativa 5: SQLite
+4
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: O que é um índice (index) em um banco de dados?
+Alternativa 1: Um identificador único para uma tabela.
+Alternativa 2: Um campo que armazena um conjunto de valores únicos.
+Alternativa 3: Uma tabela temporária criada durante uma transação.
+Alternativa 4: Um conjunto de comandos para otimizar a memória.
+Alternativa 5: Uma estrutura que melhora a velocidade de consulta de uma tabela.
+5
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual dos seguintes é um tipo de relacionamento entre tabelas em um banco de dados relacional?
+Alternativa 1: Muitos-para-nenhum
+Alternativa 2: Exclusivo-para-todos
+Alternativa 3: Um-para-sí
+Alternativa 4: Um-para-muitos
+Alternativa 5: Nenhum-para-um
+4
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL retorna o menor valor de uma coluna?
+Alternativa 1: MIN()
+Alternativa 2: LOWER()
+Alternativa 3: LEAST()
+Alternativa 4: SMALLEST()
+Alternativa 5: FLOOR()
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão:  O que faz a cláusula HAVING em SQL?
+Alternativa 1: Limita o número de registros retornados.
+Alternativa 2: Cria um índice temporário.
+Alternativa 3: Altera a estrutura de uma tabela.
+Alternativa 4: Verifica a integridade dos dados.
+Alternativa 5: Filtra grupos após a agregação.
+5
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual palavra-chave SQL é usada para combinar os resultados de duas consultas SQL?
+Alternativa 1: UNION
+Alternativa 2: JOIN
+Alternativa 3: COMBINE
+Alternativa 4: MERGE
+Alternativa 5: GROUP
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual dos seguintes é um tipo de chave que pode ter valores nulos?
+Alternativa 1: Chave primária
+Alternativa 2: Índice
+Alternativa 3: Chave estrangeira
+Alternativa 4: Chave única
+Alternativa 5: Chave candidata
+3
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: O que faz a função COUNT() no SQL?
+Alternativa 1: Conta o número de registros em uma tabela.
+Alternativa 2: Retorna o valor máximo de uma coluna.
+Alternativa 3: Soma todos os valores de uma coluna.
+Alternativa 4: Encontra valores duplicados.
+Alternativa 5: Retorna a média dos valores.
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual dos seguintes comandos SQL cria uma cópia de uma tabela?
+Alternativa 1: COPY TABLE
+Alternativa 2: CREATE TABLE AS
+Alternativa 3: DUPLICATE TABLE
+Alternativa 4: MIRROR TABLE
+Alternativa 5: CLONE TABLE
+2
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual dos seguintes é um comando DML (Data Manipulation Language)?
+Alternativa 1: CREATE
+Alternativa 2: DROP
+Alternativa 3: ALTER
+Alternativa 4: UPDATE
+Alternativa 5: GRANT
+4
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual palavra-chave SQL é usada para retornar registros com um valor nulo em uma coluna específica?
+Alternativa 1: IS BLANK
+Alternativa 2: IS EMPTY
+Alternativa 3: NULL VALUE
+Alternativa 4: EMPTY VALUE
+Alternativa 5: IS NULL
+5
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual das seguintes é uma vantagem de usar transações em um banco de dados?
+Alternativa 1: Aumentar o tempo de processamento.
+Alternativa 2: Garantir a atomicidade das operações.
+Alternativa 3: Reduzir a quantidade de registros.
+Alternativa 4: Aumentar a complexidade do sistema.
+Alternativa 5: Evitar a normalização.
+2
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual das seguintes opções define uma transação em um banco de dados?
+Alternativa 1: Uma sequência de operações que deve ser executada completamente ou não ser executada.
+Alternativa 2: Uma única operação de leitura.
+Alternativa 3: Uma operação de backup de dados.
+Alternativa 4: Uma mudança de esquema no banco de dados.
+Alternativa 5: Uma consulta SQL armazenada.
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão:  Qual comando SQL é usado para salvar permanentemente as mudanças feitas por uma transação?
+Alternativa 1: COMMIT
+Alternativa 2: ROLLBACK
+Alternativa 3: SAVE
+Alternativa 4: STORE
+Alternativa 5: FINALIZE
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: O que significa ACID em relação a transações de banco de dados?
+Alternativa 1: Acesso, Controle, Identidade, Decisão
+Alternativa 2: Associação, Consistência, Integração, Decisão
+Alternativa 3: Atualização, Coerência, Integridade, Detalhamento
+Alternativa 4: Atomicidade, Consistência, Isolamento, Durabilidade
+Alternativa 5: Adição, Correção, Inserção, Deleção
+4
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL desfaz as mudanças feitas por uma transação?
+Alternativa 1: COMMIT
+Alternativa 2: UNDO
+Alternativa 3: ROLLBACK
+Alternativa 4: CANCEL
+Alternativa 5: REVERT
+3
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Em qual nível de normalização uma tabela deve estar para que todos os seus atributos dependam exclusivamente da chave primária?
+Alternativa 1: MAKE VIEW
+Alternativa 2: BUILD VIEW
+Alternativa 3: ADD VIEW
+Alternativa 4: CREATE VIEW
+Alternativa 5: FORM VIEW
+4
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL é usado para alterar a estrutura de uma tabela existente?
+Alternativa 1: ALTER TABLE
+Alternativa 2: MODIFY TABLE
+Alternativa 3: CHANGE TABLE
+Alternativa 4: UPDATE TABLE
+Alternativa 5: RENAME TABLE
+1
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual das seguintes opções NÃO é um tipo de restrição em banco de dados?
+Alternativa 1: PRIMARY KEY
+Alternativa 2: FOREIGN KEY
+Alternativa 3: NOT NULL
+Alternativa 4: UNIQUE
+Alternativa 5: ISOLATE
+5
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual comando SQL retorna o maior valor de uma coluna?
+Alternativa 1: TOP()
+Alternativa 2: PEAK()
+Alternativa 3: MAX()
+Alternativa 4: HIGHEST()
+Alternativa 5: GREATEST()
+3
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão:  Em bancos de dados relacionais, o que é um trigger?
+Alternativa 1: Um comando para criar índices.
+Alternativa 2: Um evento que finaliza uma transação.
+Alternativa 3: Uma chave composta.
+Alternativa 4: Um conjunto de instruções SQL que é automaticamente executado quando certos eventos ocorrem em uma tabela.
+Alternativa 5: Uma forma de criar visões no banco de dados.
+4
+Matéria: Fundamentos e projetos de Banco de Dados
+Enunciado da questão: Qual das seguintes operações pode causar uma violação de integridade referencial?
+Alternativa 1: Excluir um registro referenciado por uma chave estrangeira.
+Alternativa 2: Inserir um novo registro.
+Alternativa 3: Atualizar um valor em uma coluna não indexada.
+Alternativa 4: Usar a cláusula DISTINCT.
+Alternativa 5: Ordenar uma consulta por uma coluna inexistente
+1

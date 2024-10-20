@@ -1,0 +1,240 @@
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual é o principal objetivo da retrospectiva no Scrum?
+Alternativa 1: Revisar o código escrito durante o sprint.
+Alternativa 2: Avaliar o que funcionou e o que pode ser melhorado no processo.
+Alternativa 3: Entregar novas funcionalidades ao cliente.
+Alternativa 4: Criar um novo planejamento detalhado.
+Alternativa 5: Atualizar o backlog do produto.
+5
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é um backlog no Scrum?
+Alternativa 1: Um repositório de código fonte.
+Alternativa 2: Uma lista de tarefas e funcionalidades a serem desenvolvidas.
+Alternativa 3: Um tipo de banco de dados.
+Alternativa 4: Um ambiente de teste.
+Alternativa 5: Um relatório de bugs.
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é integração contínua?
+Alternativa 1: Uma prática de compilação e testes frequentes do código.
+Alternativa 2: Um modelo de desenvolvimento tradicional.
+Alternativa 3: Uma metodologia de documentação de projetos.
+Alternativa 4: Um ciclo de vida de software longo e sequencial.
+Alternativa 5: Um sistema de controle de versões.
+1
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é o ciclo de vida de desenvolvimento de software?
+Alternativa 1: Um processo linear para desenvolvimento de código.
+Alternativa 2: Um modelo que define as fases pelas quais um software passa, desde a concepção até a manutenção.
+Alternativa 3: Um estilo de design de interfaces gráficas.
+Alternativa 4: Uma técnica de otimização de desempenho.
+Alternativa 5: Um padrão de codificação para aplicativos.
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual é a principal diferença entre a metodologia ágil e o modelo Waterfall?
+Alternativa 1: O modelo Waterfall é iterativo, enquanto o ágil é linear.
+Alternativa 2: Waterfall não exige documentação e ágil sim.
+Alternativa 3: No ágil, o planejamento é inflexível e no Waterfall é flexível.
+Alternativa 4: O ágil prioriza entregas contínuas e o Waterfall tem fases sequenciais.
+Alternativa 5: O ágil tem mais fases de testes do que o Waterfall.
+4
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é a prototipagem no desenvolvimento de software?
+Alternativa 1: Um método de análise de requisitos.
+Alternativa 2: Um tipo de teste de usabilidade.
+Alternativa 3: A criação de um modelo funcional do software para revisão com os clientes.
+Alternativa 4: Uma etapa do processo de design gráfico.
+Alternativa 5: A fase de desenvolvimento do banco de dados.
+3
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual das seguintes práticas é comum em equipes ágeis?
+Alternativa 1: Reuniões extensas e detalhadas.
+Alternativa 2: Feedback constante e melhorias contínuas.
+Alternativa 3: Planejamento de longo prazo e inflexível.
+Alternativa 4: Desenvolver primeiro e planejar depois.
+Alternativa 5: Mínima interação com o cliente.
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é o DevOps?
+Alternativa 1: Uma metodologia ágil que foca na integração entre desenvolvimento e operações para entrega contínua.
+Alternativa 2: Um modelo de design de sistemas distribuídos.
+Alternativa 3: Um estilo de codificação para sistemas operacionais.
+Alternativa 4: Uma ferramenta de gerenciamento de versões.
+Alternativa 5: Um método de documentação ágil.
+1
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que significa "entregas incrementais" no contexto ágil?
+Alternativa 1: A entrega do projeto completo ao final de um ciclo.
+Alternativa 2: A entrega de documentação em intervalos regulares.
+Alternativa 3: A adição de funcionalidades ao sistema, sem necessidade de testes.
+Alternativa 4: A entrega contínua de pequenas partes funcionais do produto ao longo do projeto.
+Alternativa 5: A criação de novos módulos de software após a entrega do produto final.
+4
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual é a importância do feedback rápido em metodologias ágeis?
+Alternativa 1: Minimizar a quantidade de reuniões.
+Alternativa 2: Aumentar a documentação do projeto.
+Alternativa 3: Permitir ajustes rápidos e evitar problemas maiores ao longo do desenvolvimento.
+Alternativa 4: Reduzir a interação entre o cliente e a equipe de desenvolvimento.
+Alternativa 5: Controlar o tempo gasto em cada fase do projeto.
+3
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual das seguintes metodologias é considerada ágil?
+Alternativa 1: Waterfall
+Alternativa 2: RUP
+Alternativa 3: Scrum
+Alternativa 4: V-Model
+Alternativa 5: RAD
+3
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que caracteriza o modelo Waterfall?
+Alternativa 1: Iterações contínuas
+Alternativa 2: Fases sequenciais
+Alternativa 3: Prototipagem rápida
+Alternativa 4: Testes integrados desde o início
+Alternativa 5: Documentação mínima
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual das seguintes atividades ocorre na fase de 'análise de requisitos'?
+Alternativa 1: Codificação
+Alternativa 2: Testes unitários
+Alternativa 3: Implantação
+Alternativa 4: Manutenção
+Alternativa 5: Levantamento de requisitos
+5
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Em Scrum, qual é o papel do Product Owner?
+Alternativa 1: Gerenciar a equipe de desenvolvimento
+Alternativa 2: Definir o backlog do produto
+Alternativa 3: Conduzir as reuniões diárias
+Alternativa 4: Realizar testes de aceitação
+Alternativa 5: Gerenciar a infraestrutura
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é um sprint no contexto do Scrum? 
+Alternativa 1: Um documento de requisitos
+Alternativa 2: Um período fixo para desenvolver funcionalidades
+Alternativa 3: Uma técnica de testes
+Alternativa 4: Um tipo de diagrama
+Alternativa 5: Uma reunião de planejamento
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual das seguintes é uma característica da metodologia Agile?
+Alternativa 1: Documentação extensiva
+Alternativa 2: Mudança de requisitos é bem-vinda
+Alternativa 3: Foco apenas na codificação
+Alternativa 4: Entrega única no final do projeto
+Alternativa 5: Estrutura rígida
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é um protótipo de baixa fidelidade? 
+Alternativa 1: Um software totalmente funcional
+Alternativa 2: Uma representação gráfica simples
+Alternativa 3: Um modelo de dados complexo
+Alternativa 4: Um código em produção
+Alternativa 5: Um documento de especificação
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Na metodologia RUP, qual é um dos principais artefatos? 
+Alternativa 1: Documento de visão
+Alternativa 2: Manual do usuário
+Alternativa 3: Plano de testes
+Alternativa 4: Relatório de bugs
+Alternativa 5: Código fonte
+1
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é a técnica de TDD (Test-Driven Development)? 
+Alternativa 1: Desenvolvimento sem testes
+Alternativa 2: Testes realizados após a codificação
+Alternativa 3: Escrita de testes antes do código
+Alternativa 4: Testes manuais
+Alternativa 5: Integração contínua
+3
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual é o objetivo principal da metodologia DevOps?
+Alternativa 1: Aumentar a documentação
+Alternativa 2: Melhorar a colaboração entre desenvolvimento e operações
+Alternativa 3: Reduzir o número de programadores
+Alternativa 4: Criar software sem testes
+Alternativa 5: Implementar metodologias tradicionais
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é a metodologia ágil?
+Alternativa 1: Um método tradicional de desenvolvimento.
+Alternativa 2: Uma abordagem que prioriza a flexibilidade e a colaboração.
+Alternativa 3: Uma técnica de codificação.
+Alternativa 4: Um tipo de banco de dados.
+Alternativa 5: Um estilo de documentação.
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual é o principal objetivo do Scrum?
+Alternativa 1: Garantir documentação extensiva.
+Alternativa 2: Dividir o projeto em sprints para facilitar o desenvolvimento.
+Alternativa 3: Promover a codificação estruturada.
+Alternativa 4: Reduzir o número de desenvolvedores no time.
+Alternativa 5: Usar técnicas de waterfall para planejamento.
+4
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que o Manifesto Ágil defende?
+Alternativa 1: Flexibilidade, colaboração e entrega contínua de valor.
+Alternativa 2: Uso estrito de documentação e relatórios.
+Alternativa 3: Revisão formal de cada linha de código.
+Alternativa 4: Um ciclo de vida linear e rígido.
+Alternativa 5: Desenvolvimento sem qualquer planejamento.
+1
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é um sprint no Scrum?
+Alternativa 1: Um ciclo de desenvolvimento que dura uma semana.
+Alternativa 2: Um ciclo de desenvolvimento com duração fixa para entregar funcionalidades.
+Alternativa 3: Uma fase de testes.
+Alternativa 4: Uma ferramenta de integração contínua.
+Alternativa 5: Um estilo de documentação para o time.
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual é o papel do Product Owner no Scrum?
+Alternativa 1: Definir e priorizar as funcionalidades que serão desenvolvidas.
+Alternativa 2: Escrever código junto aos desenvolvedores.
+Alternativa 3: Realizar testes de software.
+Alternativa 4: Criar a arquitetura do sistema.
+Alternativa 5: Documentar o projeto detalhadamente.
+1
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é o Kanban?
+Alternativa 1: Uma técnica de planejamento de longo prazo.
+Alternativa 2: Um método ágil visual para gerenciamento de tarefas.
+Alternativa 3: Uma linguagem de programação.
+Alternativa 4: Um framework de testes automatizados.
+Alternativa 5: Um tipo de diagrama UML.
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual das opções a seguir é uma característica da metodologia ágil?
+Alternativa 1: Planejamento fixo e inflexível.
+Alternativa 2: Feedback constante e adaptações rápidas.
+Alternativa 3: Nenhuma comunicação entre as equipes.
+Alternativa 4: Extensa documentação antes de iniciar o projeto.
+Alternativa 5: Fases longas e ininterruptas.
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é o XP (Extreme Programming)?
+Alternativa 1: Uma metodologia de desenvolvimento tradicional.
+Alternativa 2: Um framework ágil focado em desenvolvimento incremental com feedback rápido.
+Alternativa 3: Um modelo de testes unitários.
+Alternativa 4: Uma linguagem de programação.
+Alternativa 5: Um método de análise de requisitos.
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: Qual é a principal vantagem do desenvolvimento incremental?
+Alternativa 1: Evitar retrabalho.
+Alternativa 2: Permitir a entrega de partes funcionais do produto de forma contínua.
+Alternativa 3: Diminuir o tempo de testes.
+Alternativa 4: Melhorar a documentação.
+Alternativa 5: Evitar reuniões de equipe.
+2
+Matéria: Metodologia de Desenvolvimento de Software
+Enunciado da questão: O que é um "Spike" no Scrum?
+Alternativa 1: Uma ferramenta para gerenciar riscos.
+Alternativa 2: Uma pesquisa ou experimento técnico para explorar soluções ou estimar dificuldades.
+Alternativa 3: Um tipo de teste de desempenho.
+Alternativa 4: Um módulo de código reutilizável.
+Alternativa 5: Um gráfico de progresso de projeto.
+2
