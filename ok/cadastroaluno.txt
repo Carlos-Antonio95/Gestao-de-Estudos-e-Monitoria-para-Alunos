@@ -1,0 +1,19 @@
+Nome: 123
+Matricula: 2024290636
+Curso: rew
+Periodo: 1
+Quantidade de Disciplinas: 1
+Disciplina 1: 1
+Nome: lslsls
+Matricula: 1234567899
+Curso: 123
+Periodo: 2
+Quantidade de Disciplinas: 2
+Disciplina 1: 1
+Disciplina 2: 2
+Nome: 123
+Matricula: 1234568787
+Curso: 11
+Periodo: 1
+Quantidade de Disciplinas: 1
+Disciplina 1: 1

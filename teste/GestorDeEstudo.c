@@ -915,12 +915,11 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
                 printf("Continue com a escolha da opção anterior: ");
                 Sleep(300);
             }else{
-                //tempo = cronograma->tempoDisponivel / cronograma->quantdisciplinas;
+                tempo = cronograma->tempoDisponivel / cronograma->quantdisciplinas;
                 Sleep(300);
                 printf("\nTempo de estudo da disciplina %s chegou ao fim \n",cronograma->disciplinas[i]);
                 Sleep(300);
-                //printf("Tempo total de estudo: %i minutos.\n",tempo*cronograma->quantdisciplinas);
-                  printf("Tempo total de estudo: %i minutos.\n",cronograma->tempoDisponivel);
+                printf("Tempo total de estudo: %i minutos.\n",tempo*cronograma->quantdisciplinas);
                 Sleep(300);
                 printf("Continue com a escolha da opção anterior: ");
                 Sleep(300);
@@ -928,7 +927,7 @@ DWORD WINAPI temporizador(LPVOID lpParam) {
             
             //reseta o contador de discplinas para 0, assim encerrandoa função ate ser chamanda novamente
 
-            if(i + 1 == cronograma->quantdisciplinas){
+            if(i == cronograma->quantdisciplinas){
                  cronograma->contador = 0;
             }
         }
