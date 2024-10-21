@@ -1,6 +1,0 @@
-Nome: 1
-Matricula: 1234567899
-Curso: a
-Periodo: 1
-Quantidade de Disciplinas: 1
-Disciplina 1: 1
